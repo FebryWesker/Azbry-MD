@@ -1,5 +1,5 @@
 # 🌙 Azbry-MD
-Bot WhatsApp Multi-Device cerdas berbasis **Baileys MD**, dengan fitur otomatis, tampilan elegan, dan sistem yang bisa menyesuaikan gaya pengguna.
+Bot WhatsApp Multi-Device cerdas berbasis **Baileys MD**, dengan sistem otomatis, tampilan elegan, dan gaya khas *Azbry System™*.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-18.x-brightgreen?logo=node.js&logoColor=white" />
@@ -10,31 +10,142 @@ Bot WhatsApp Multi-Device cerdas berbasis **Baileys MD**, dengan fitur otomatis,
 
 ---
 
-## ⚡ Tentang Azbry-MD
-**Azbry-MD** adalah bot WhatsApp berbasis *Baileys Multi-Device*, dikembangkan dengan sistem **smart automation** yang responsif dan ringan.
-
-Dirancang khusus untuk membantu aktivitas grup dan personal chat — mulai dari pengingat sholat, sistem level, laporan otomatis, hingga fitur lucu dan informatif.  
-> Dibuat dan dikembangkan oleh **FebryWesker 🧠**
+## 🧭 Tentang Azbry-MD
+| Detail | Keterangan |
+|--------|-------------|
+| **Nama Project** | 🌙 Azbry-MD |
+| **Jenis Project** | WhatsApp Multi-Device Bot |
+| **Framework** | [Baileys MD](https://github.com/WhiskeySockets/Baileys) |
+| **Fokus Utama** | Smart Automation & Elegant System |
+| **Dikembangkan oleh** | 🧠 FebryWesker |
+| **Tagline** | *"Bot bukan cuma alat, tapi partner digital yang hidup."* |
 
 ---
 
 ## ✨ Fitur Utama
 | Kategori | Deskripsi |
 |-----------|------------|
-| 🕋 **Pengingat Sholat** | Otomatis kirim waktu sholat (WITA) + audio adzan |
-| 🍱 **Pengingat Makan** | Sarapan, siang, malam dengan suara & pesan otomatis |
-| 🧩 **Level & XP System** | Sistem leveling seimbang dengan rank & leaderboard |
-| 🤬 **Filter Kata Kasar** | Deteksi & hapus pesan dengan kata negatif |
+| 🕋 **Pengingat Sholat** | Kirim jadwal sholat otomatis dengan audio adzan |
+| 🍱 **Pengingat Makan** | Pesan dan audio otomatis di jam makan |
+| 🧩 **Level System** | XP seimbang, rank, dan leaderboard |
+| 🤬 **Filter Kata Kasar** | Deteksi & blokir kata terlarang |
 | 🧾 **Menu & MenuAll** | Tampilan elegan tema *Azbry Style* |
-| 💾 **Auto Backup DB** | Backup otomatis database & plugin tiap malam |
-| 📊 **Auto Report** | Laporan harian status bot ke owner |
-| ⚙️ **Command Premium** | Seperti `.lvl`, `.leaderboard`, `.azinfo`, `.azstat`, dll. |
+| 📊 **Auto Report** | Laporan harian ke owner |
+| 💾 **Auto Backup** | Backup otomatis database dan plugin |
+| 🧠 **Command AI & Utility** | `.lvl`, `.azinfo`, `.azstat`, `.bw`, `.menuall`, dll. |
 
 ---
 
-## 🚀 Cara Install
-```bash
-git clone https://github.com/FebryWesker/Azbry-MD
-cd Azbry-MD
-npm install
-npm start
+## ⚙️ Instalasi
+| Langkah | Perintah |
+|----------|-----------|
+| 1️⃣ Clone repo | `git clone https://github.com/FebryWesker/Azbry-MD` |
+| 2️⃣ Masuk folder | `cd Azbry-MD` |
+| 3️⃣ Install dependensi | `npm install` |
+| 4️⃣ Jalankan bot | `npm start` |
+
+---
+
+## ⚡ Konfigurasi Dasar
+| File | Opsi yang Harus Disunting |
+|------|-----------------------------|
+| `config.js` | Tambahkan nomor owner dan pengaturan utama |
+| ⚠️ Catatan | Jangan upload `.env`, `sessions/`, `database.json`, atau file sensitif lain |
+
+**Contoh Konfigurasi:**
+```js
+global.owner = ['isi_nomor_kamu']
+global.numberowner = 'isi_nomor_kamu'
+```
+
+---
+
+## 🧩 Harap Dibaca Sebelum Install
+| Topik | Penjelasan |
+|--------|-------------|
+| ⚙️ **Error @lid** | Pastikan file `handler.js`, `plugins/tools-getlid.js`, `lib/simple.js`, dan `lib/baileys.js` sudah versi terbaru |
+| 🧹 **Solusi Cepat** | Jika error masih terjadi, hapus folder `sessions/` lalu login ulang QR |
+| 🧩 **Update Manual?** | Tidak perlu. Cukup clone versi terbaru dari repo ini |
+
+---
+
+## 💡 Cara Mendapatkan LID (WAJIB DIBACA)
+
+1️⃣ Buat grup baru atau chat pribadi dengan bot  
+2️⃣ Ketik perintah:
+```
+.getlid
+```
+3️⃣ Bot akan membalas:
+```
+275664439611636@lid
+```
+4️⃣ Salin **hanya angka saja**, tanpa `@lid`:
+```
+275664439611636
+```
+5️⃣ Tempelkan ke `config.js` seperti ini:
+```js
+global.owner = ['62xxxxxx','275664439611636']
+global.mods = ['62xxxxxx','275664439611636']
+global.prems = ['62xxxxxx','275664439611636']
+```
+
+📺 **Video Tutorial Lengkap:**  
+[Klik untuk Menonton di YouTube](https://youtube.com/playlist?list=PLuQT2lE0wOYQNQhk2E8JAerojcZj8ckMY&s=kehl9mWEVmctVms0)
+
+---
+
+## 🩻 Penjelasan Masalah `@lid`
+| Gejala | Penyebab & Solusi |
+|---------|-------------------|
+| ❌ Bot tidak merespons di grup | LID tidak diatur dengan benar |
+| ⚠️ Owner tidak terdeteksi | Nomor belum sinkron di `config.js` |
+| 💤 Fitur admin tidak berjalan | Bot bukan admin / LID salah |
+| 🧠 Solusi | Pastikan konfigurasi LID sesuai panduan di atas |
+
+---
+
+## 💻 Command Utama
+| Perintah | Fungsi |
+|-----------|--------|
+| `.menu` | Menampilkan kategori menu |
+| `.menu <kategori>` | Contoh: `.menu sticker` |
+| `.menuall` | Menampilkan semua perintah |
+| `.lvl / .leaderboard` | Menampilkan profil level dan ranking |
+| `.bw on/off/status` | Mengatur filter kata kasar |
+| `.azinfo` | Menampilkan info bot dan plugin aktif |
+| `.azstat` | Melihat status sistem & uptime |
+
+---
+
+## 🧠 Developer
+| Identitas | Keterangan |
+|------------|------------|
+| 👤 **Nama** | FebryWesker |
+| 🧩 **Peran** | Creator & Lead Developer Azbry-MD |
+| 💡 **Fokus** | Smart Automation, XP System, Modular Plugin |
+| ✉️ **Pesan** | *"Bangun bot bukan buat gaya, tapi buat efisiensi."* |
+
+---
+
+## 🙏 Ucapan Terima Kasih
+| Kontributor | Kontribusi |
+|--------------|-------------|
+| ☕ **Botcahx Team** | Struktur dasar & referensi Baileys |
+| 💻 **Open Source Devs** | Library dan modul pendukung |
+| 💬 **Pengguna & Tester** | Feedback & inspirasi pengembangan |
+
+> Terima kasih telah menjadi bagian dari perjalanan Azbry-MD 🚀
+
+---
+
+## 📜 Lisensi
+| Jenis | Keterangan |
+|--------|-------------|
+| **Lisensi** | MIT License |
+| **Hak Cipta** | © 2025 FebryWesker |
+| **Catatan** | Bebas dimodifikasi, tapi tetap hargai karya 🧠 |
+
+> 🌙 *Azbry-MD™ – The Next Evolution of Smart WhatsApp Bot*  
+> _Dibangun dengan logika, cinta, dan sedikit kopi ☕_
