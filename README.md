@@ -182,3 +182,9 @@ global.prems = ['62xxxxxx','275664439611636']
 
 > 🌙 *Azbry-MD™ – The Next Evolution of Smart WhatsApp Bot*  
 > _Dibangun dengan logika, cinta, dan sedikit kopi ☕_
+---
+
+<p align="center">
+  <sub>Developed with ❤️ by <b>FebryWesker</b> — Powered by <b>Azbry System™</b></sub><br/>
+  <sup>© 2025 Azbry-MD. Licensed under the MIT License.</sup>
+</p>
