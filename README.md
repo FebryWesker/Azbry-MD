@@ -1,3 +1,16 @@
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Playfair+Display&weight=500&size=28&duration=3500&pause=1000&color=6F00FF&center=true&vCenter=true&width=600&lines=🌙+AZBRY-MD+PREMIUM;Smart+Automation+System+By+FebryWesker;Baileys+MD+Based+WhatsApp+Bot;Elegant+and+Powerful" alt="Azbry-MD Typing Banner" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-18.x-brightgreen?logo=node.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?logo=open-source-initiative&logoColor=white" />
+  <img src="https://img.shields.io/badge/Developer-FebryWesker%20🧠-purple" />
+  <img src="https://img.shields.io/badge/Status-Active-success" />
+  <img src="https://img.shields.io/github/stars/FebryWesker/Azbry-MD?style=social" />
+</p>
+
+---
 # 🌙 Azbry-MD
 Bot WhatsApp Multi-Device cerdas berbasis **Baileys MD**, dengan sistem otomatis, tampilan elegan, dan gaya khas *Azbry System™*.
 
