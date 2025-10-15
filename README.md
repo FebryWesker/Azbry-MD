@@ -49,6 +49,22 @@ Bot WhatsApp Multi-Device cerdas berbasis **Baileys MD**, dengan sistem otomatis
 
 ---
 
+## 📞 Kontak & Dukungan
+
+| Jenis | Kontak |
+|-------|--------|
+| 👑 **Owner** | [📱 WhatsApp](https://wa.me/6281510040802?text=Halo%20bang%20Azbry!) ・ [📧 Email](mailto:support@azbry.system) |
+| 🤖 **Bot Aktif** | [🌐 Klik untuk Chat Bot](https://wa.me/6285189988271?text=Hai%20Bot%20Azbry%20MD) |
+| 💬 **Instagram** | [lagi dibuat_](https://instagram.com/_) |
+| 🪄 **Website** | [azbry-system.web.app](https://azbry-system.web.app) |
+| ☕ **Donasi & Dukungan** | [☕ Gabutuh duit](gada gabutuh duit) |
+
+> 🧠 **Catatan:**  
+> Hanya hubungi nomor Owner untuk kerja sama, laporan bug, atau bantuan teknis.  
+> Bot aktif 24 jam — gunakan perintah `.menu` untuk memulai.
+
+---
+
 ## ✨ Fitur Utama
 | Kategori | Deskripsi |
 |-----------|------------|
