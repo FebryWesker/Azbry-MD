@@ -173,6 +173,29 @@ global.prems = ['62xxxxxx','275664439611636']
 
 ---
 
+## 🙏 Special Thanks
+
+<table>
+  <tr>
+    <td align="center" width="150">
+      <a href="https://github.com/BOTCAHX">
+        <img src="https://github.com/BOTCAHX.png?size=150" width="120" style="border-radius:15px;"/>
+        <br/>
+        <sub><b>Tio</b></sub>
+      </a>
+      <br/>
+      <i>Founder & Inspiration</i>
+      <br/>
+      <span style="font-size: 12px;">Support & Guidance for Azbry System™</span>
+    </td>
+  </tr>
+</table>
+
+> 💬 “Special appreciation to **Tio (BOTCAHX)** for the inspiration, foundation, and innovation that shaped the development of *Azbry-MD*.”  
+> — *FebryWesker*
+
+---
+
 ## 📜 Lisensi
 | Jenis | Keterangan |
 |--------|-------------|
