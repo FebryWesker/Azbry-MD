@@ -4,85 +4,110 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Azbry-MD • FebryWesker</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#0f0f10; --surface:#111214; --card:#141518; --ring:#26272b;
-  --txt:#F3F4F6; --muted:#B3B3BB; --ink:#F9FAFB; --ghost:#1b1c20; --accent:#E5E7EB;
-  --shadow:0 2px 24px rgba(0,0,0,.35);
+  --bg:#0e0f11; --surface:#111317; --card:#15171b; --ring:#24262b;
+  --txt:#F3F4F6; --muted:#B7BBC5; --ink:#FAFAFB; --ghost:#1a1c21; --accent:#E6E8EC;
+  --shadow:0 6px 32px rgba(0,0,0,.35);
+  --radius:18px;
+  --space:26px;
 }
-*{box-sizing:border-box} html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--txt);font:18px/1.7 Inter,system-ui,Segoe UI,Roboto,Arial;overflow-x:hidden}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--txt);
+  font:17.5px/1.9 "Plus Jakarta Sans",system-ui,Segoe UI,Roboto,Arial;
+  letter-spacing:.1px; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
 
 /* ===== Ribbon ===== */
 .ribbon{
-  background:#18191c; border-bottom:1px solid var(--ring); text-align:center; padding:10px 12px;
-  position:sticky; top:0; z-index:50;
+  background:#17191d; border-bottom:1px solid var(--ring);
+  text-align:center; padding:12px 14px; position:sticky; top:0; z-index:60;
 }
-.ribbon a{color:#000;background:var(--accent);padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:800}
+.ribbon a{color:#000;background:var(--accent);padding:9px 16px;border-radius:999px;
+  text-decoration:none;font-weight:800;display:inline-block}
 
 /* ===== Header ===== */
-header{background:var(--surface);border-bottom:1px solid var(--ring);position:sticky;top:48px;z-index:40}
-.wrap{max-width:1120px;margin:0 auto;padding:24px 22px}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--txt)}
-.logo{width:52px;height:52px;border-radius:12px;border:1px solid var(--ring);
-  background:url('https://files.catbox.moe/xv0imr.png') center/cover no-repeat;animation:pulse 3s infinite ease-in-out}
-.brand h1{margin:0;font-size:22px;font-weight:800}
-.brand small{display:block;margin-top:2px;color:var(--muted);font-weight:600;font-size:14px}
+header{background:var(--surface);border-bottom:1px solid var(--ring);position:sticky;top:54px;z-index:50}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--txt)}
+.logo{
+  width:58px;height:58px;border-radius:14px;border:1px solid var(--ring);
+  background:url('https://files.catbox.moe/xv0imr.png') center/cover no-repeat;
+  box-shadow:var(--shadow);
+}
+.brand h1{margin:0;font-size:24px;font-weight:800}
+.brand small{display:block;margin-top:4px;color:var(--muted);font-weight:600;font-size:14px}
 
-.tabs{display:flex;gap:8px;flex-wrap:wrap}
-.tab{appearance:none;border:1px solid transparent;background:transparent;color:var(--txt);
-  padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;font-size:16px;transition:.25s}
-.tab:hover{background:#1a1a1c;border-color:var(--ring);transform:translateY(-1px)}
-.tab.active{background:#1a1a1c;border-color:var(--ring)}
+.tabs{display:flex;gap:10px;flex-wrap:wrap}
+.tab{
+  appearance:none;border:1px solid transparent;background:transparent;color:var(--txt);
+  padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;font-size:16px;transition:.25s
+}
+.tab:hover{background:#1b1d22;border-color:var(--ring);transform:translateY(-1px)}
+.tab.active{background:#1b1d22;border-color:var(--ring)}
 
-/* ===== Layout / Cards ===== */
-main{padding:24px 0 114px}
+/* ===== Layout ===== */
+main{padding:34px 0 128px}
 .section{display:none;opacity:0;transform:translateY(14px);animation:fadeUp .45s ease forwards}
 .section.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.06);opacity:.9}}
 
-.title{margin:0 0 10px;font-size:clamp(34px,6.2vw,52px);font-weight:800}
-.lead{margin:0 0 24px;color:var(--ink);font-size:19px}
+.title{margin:0 0 10px;font-size:clamp(36px,6.0vw,56px);font-weight:800;line-height:1.2}
+.lead{margin:0 0 26px;color:var(--ink);font-size:19px}
 
-.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start}
-@media (max-width:900px){.grid{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:start}
+@media (max-width:980px){.grid{grid-template-columns:1fr}}
 
+.stack>*+*{margin-top:var(--space)} /* spasi antar elemen vertikal */
+
+/* ===== Cards ===== */
 .card,.heroCard{
-  background:var(--card);border:1px solid var(--ring);border-radius:18px;padding:24px;box-shadow:var(--shadow);
+  background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);
+  padding:24px 22px;box-shadow:var(--shadow);
   transition:transform .25s ease, box-shadow .25s ease
 }
-.card:hover,.heroCard:hover{transform:translateY(-4px);box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.card:hover,.heroCard:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.5)}
 .card h3{margin:0 0 10px;font-size:22px}
 .meta{color:var(--muted);font-size:16px;margin:0}
-.kicker{display:inline-flex;gap:10px;background:var(--ghost);color:var(--ink);border:1px solid #2a2b2f;
-  padding:8px 14px;border-radius:999px;font-weight:800;font-size:14px}
+.kicker{
+  display:inline-flex;gap:10px;background:var(--ghost);color:var(--ink);
+  border:1px solid #2a2d33;padding:9px 14px;border-radius:999px;font-weight:800;font-size:14px
+}
 
 /* ===== Buttons ===== */
-.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:14px 18px;border-radius:14px;border:1px solid var(--ring);
-  background:#1b1c20;color:var(--txt);text-decoration:none;font-weight:800;font-size:16px;transition:.25s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 0 12px rgba(255,255,255,.1)}
-.btn.primary{background:var(--accent);color:#000;border-color:transparent}
-.btn.primary:hover{background:#d1d5db}
-.btn.ghost{background:var(--ghost);color:var(--ink);border-color:#2a2b2f}
-
-/* ===== Sticky CTA (bottom) ===== */
-.sticky{
-  position:fixed;left:0;right:0;bottom:0;z-index:60;background:linear-gradient(180deg,rgba(15,15,16,0),#0f0f10 28%);
-  padding:18px 14px 16px;border-top:1px solid var(--ring)
+  background:#1b1d22;color:var(--txt);text-decoration:none;font-weight:800;font-size:16px;transition:.25s
 }
-.sticky .inner{max-width:1120px;margin:0 auto;background:#16171a;border:1px solid var(--ring);
-  padding:14px 16px;border-radius:16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 12px rgba(255,255,255,.08)}
+.btn.primary{background:var(--accent);color:#000;border-color:transparent}
+.btn.primary:hover{background:#d8dbe0}
+.btn.ghost{background:#17191e;color:var(--ink);border-color:#2a2d33}
+
+/* ===== Lists ===== */
+ul.clean{padding-left:20px;margin:8px 0} ul.clean li{margin:8px 0}
+
+/* ===== Sticky CTA ===== */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:linear-gradient(180deg,rgba(14,15,17,0),#0e0f11 28%);
+  padding:18px 16px;border-top:1px solid var(--ring)
+}
+.sticky .inner{
+  max-width:1180px;margin:0 auto;background:#16181d;border:1px solid var(--ring);
+  padding:14px 16px;border-radius:16px;display:flex;gap:12px;align-items:center;justify-content:space-between
+}
 .sticky strong{font-size:16px}
 .sticky .btn{padding:10px 14px;font-size:15px;border-radius:12px}
 
-/* ===== Misc ===== */
-ul.clean{padding-left:20px;margin:6px 0} ul.clean li{margin:8px 0}
-footer{border-top:1px solid var(--ring);padding:26px 0;text-align:center;color:var(--muted);font-size:15px}
+/* ===== Footer ===== */
+footer{border-top:1px solid var(--ring);padding:28px 0;text-align:center;color:var(--muted);font-size:15px}
 </style>
 </head>
 <body>
@@ -114,27 +139,22 @@ footer{border-top:1px solid var(--ring);padding:26px 0;text-align:center;color:v
   <!-- AZBRY SISTEM (default) -->
   <section id="azbry" class="section active" aria-labelledby="az-title">
     <div class="grid">
-      <div>
+      <div class="stack">
         <span class="kicker">🧠 Azbry Sistem</span>
-        <h2 id="az-title" class="title">Platform bot monokrom: fokus pada fitur, bukan gimmick.</h2>
-        <p class="lead">Semua fitur inti dirangkum jelas dan bisa kamu uji. Dokumentasi singkat untuk admin & user.</p>
+        <h2 id="az-title" class="title">Platform bot monokrom — fokus ke fitur, bukan gimmick.</h2>
+        <p class="lead">Semua fitur inti dirangkum rapi + dokumentasi singkat untuk admin & user. CTA besar diarahkan ke Azbry Sistem & GitHub.</p>
 
-        <div class="card">
-          <h3>Fitur Utama</h3>
-          <ul class="clean">
-            <li><b>Reminder Sholat & Makan</b> — jadwal manual per zona, trigger test, log “last run”.</li>
-            <li><b>AutoBackup & Report</b> — backup harian + ringkasan kesehatan bot.</li>
-            <li><b>Mention Rescue</b> — cegah ghost ping, mode AFK ≥ 30m.</li>
-            <li><b>Level & XP</b> — akumulasi on-message, anti-spam sederhana.</li>
-            <li><b>Rate-limit</b> — batas command per user untuk jaga resource.</li>
-          </ul>
-
-          <h3>Perintah Cepat</h3>
-          <ul class="clean">
-            <li><code>.sholat on|off [here|all]</code>, <code>.sholat add|del here</code>, <code>.sholat list</code>, <code>.sholat test &lt;subuh|dzuhur|ashar|maghrib|isya&gt;</code></li>
-            <li><code>.autostat</code> — status fitur otomatis dalam 1 layar.</li>
-          </ul>
-
+        <div class="card stack">
+          <div>
+            <h3>Fitur Utama</h3>
+            <ul class="clean">
+              <li><b>Reminder Sholat & Makan</b> — jadwal manual per zona, test trigger, log “last run”.</li>
+              <li><b>AutoBackup & Report</b> — backup harian + ringkasan kesehatan bot.</li>
+              <li><b>Mention Rescue</b> — DM kalau di-mention saat AFK ≥ 30m.</li>
+              <li><b>Level & XP</b> — akumulasi on-message.</li>
+              <li><b>Rate-limit</b> — batasi command per user untuk jaga resource.</li>
+            </ul>
+          </div>
           <div class="actions">
             <a class="btn primary" href="#github">Lihat Kode di GitHub</a>
             <a class="btn ghost"   href="#whatsapp">Butuh bantuan cepat?</a>
@@ -142,15 +162,17 @@ footer{border-top:1px solid var(--ring);padding:26px 0;text-align:center;color:v
         </div>
       </div>
 
-      <aside class="heroCard" aria-label="Ringkasan Sistem">
-        <h3>Status Ringkas</h3>
-        <ul class="clean">
-          <li>Mode: Stable • Monochrome UI</li>
-          <li>Auto-backup: Aktif • Report: Aktif</li>
-          <li>Reminder: Sholat & Makan</li>
-          <li>XP/Level: On-message</li>
-          <li>Rate-limit: Per user/command</li>
-        </ul>
+      <aside class="heroCard stack" aria-label="Ringkasan Sistem">
+        <div>
+          <h3>Status Ringkas</h3>
+          <ul class="clean">
+            <li>Mode: Stable • Monochrome UI</li>
+            <li>Auto-backup & Report aktif</li>
+            <li>Reminder: Sholat & Makan</li>
+            <li>XP/Level: On-message</li>
+            <li>Rate-limit: Per user/command</li>
+          </ul>
+        </div>
         <div class="actions">
           <a class="btn primary" href="#azbry">Baca Dokumentasi Singkat</a>
         </div>
@@ -160,22 +182,24 @@ footer{border-top:1px solid var(--ring);padding:26px 0;text-align:center;color:v
 
   <!-- GITHUB -->
   <section id="github" class="section" aria-labelledby="gh-title">
-    <div class="card">
-      <h3 id="gh-title">Repositori Azbry-MD</h3>
-      <p class="meta">Kode sumber, rilis, dan isu pelaporan. Silakan fork/PR; kredit tetap mengarah ke pembuat asli.</p>
+    <div class="card stack">
+      <div>
+        <h3 id="gh-title">Repositori Azbry-MD</h3>
+        <p class="meta">Kode sumber, rilis, dan issue tracking. Silakan fork/PR; kredit tetap pada pembuat asli.</p>
+      </div>
       <div class="actions">
         <a class="btn primary" href="https://github.com/FebryWesker/Azbry-MD" target="_blank" rel="noopener">Buka GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- HOME (sekunder) -->
+  <!-- HOME (sekunder, ditata lebih lega) -->
   <section id="home" class="section" aria-labelledby="home-title">
     <div class="grid">
-      <div>
+      <div class="stack">
         <span class="kicker">⚙️ Azbry-MD • Stable</span>
         <h2 id="home-title" class="title">WhatsApp multi-device bot — cepat, ringan, modular.</h2>
-        <p class="lead">Dikelola oleh <b>FebryWesker</b>. Desain monokrom biar fokus ke konten.</p>
+        <p class="lead">Dikelola oleh <b>FebryWesker</b>. Desain monokrom yang rapi supaya konten tetap utama.</p>
         <div class="actions">
           <a class="btn primary" href="#azbry">Buka Azbry Sistem</a>
           <a class="btn" href="#github">Lihat GitHub</a>
@@ -183,19 +207,22 @@ footer{border-top:1px solid var(--ring);padding:26px 0;text-align:center;color:v
       </div>
       <div class="heroCard">
         <h3>Kenapa Monokrom?</h3>
-        <p class="meta">Kontras tinggi, aksesibilitas oke, dan konsisten sama brand Azbry.</p>
+        <p class="meta">Kontras tinggi, aksesibel, dan konsisten dengan brand Azbry. Minim gangguan visual, maksimal fokus.</p>
       </div>
     </div>
   </section>
 
-  <!-- WHATSAPP (paling sekunder) -->
+  <!-- WHATSAPP (tanpa menampilkan nomor) -->
   <section id="whatsapp" class="section" aria-labelledby="wa-title">
-    <div class="card">
-      <h3 id="wa-title">Kontak WhatsApp</h3>
-      <p class="meta">Untuk instalasi cepat, pertanyaan singkat, atau laporan bug.</p>
+    <div class="card stack">
+      <div>
+        <h3 id="wa-title">Kontak WhatsApp</h3>
+        <p class="meta">Untuk instalasi cepat, pertanyaan singkat, atau laporan bug. Klik tombol sesuai kebutuhan—nomor tidak ditampilkan di halaman.</p>
+      </div>
       <div class="actions">
-        <a class="btn" href="https://wa.me/6281510040802" target="_blank" rel="noopener">Owner • 6281510040802</a>
-        <a class="btn ghost" href="https://wa.me/6285189988271" target="_blank" rel="noopener">Bot • 6285189988271</a>
+        <!-- tombol tanpa menampilkan angka -->
+        <a class="btn" href="https://wa.me/6281510040802" target="_blank" rel="noopener">Nomor Owner</a>
+        <a class="btn ghost" href="https://wa.me/6285189988271" target="_blank" rel="noopener">Nomor Bot</a>
       </div>
     </div>
   </section>
@@ -214,27 +241,23 @@ footer{border-top:1px solid var(--ring);padding:26px 0;text-align:center;color:v
 <footer>© <span id="year"></span> FebryWesker. All rights reserved.</footer>
 
 <script>
-const sections=["azbry","github","home","whatsapp"]; // prioritas
+const sections=["azbry","github","home","whatsapp"];
 const $=id=>document.getElementById(id);
-
 function setActive(id){
   sections.forEach(s=>{
     const sec=document.getElementById(s); if(!sec) return;
     sec.classList.toggle("active", s===id);
-    const tab=document.getElementById("tab-"+s.replace("#","")); 
+    const tab=document.getElementById("tab-"+s.replace("#",""));
     if(tab) tab.classList.toggle("active", s===id);
   });
   window.scrollTo({top:0,behavior:"instant"});
 }
-
-// default -> azbry
 function resolve(){
   const hash=(location.hash||"#azbry").slice(1);
   setActive(sections.includes(hash)?hash:"azbry");
 }
 window.addEventListener("hashchange",resolve);
 resolve();
-
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
