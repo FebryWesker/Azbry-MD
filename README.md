@@ -1,6 +1,24 @@
 <!-- =========================
      AZBRY-MD Banner (Mobile + Desktop)
      ========================= -->
+     <p align="center">
+  <img src="https://files.catbox.moe/xv0imr.png" alt="Azbry-MD Preview" width="700">
+</p>
+
+<h1 align="center">🌙 Azbry-MD</h1>
+<p align="center">
+  <i>Smart automation WhatsApp system built with Baileys MD — elegant, adaptive, and powered by Azbry System™</i>
+</p>
+
+---
+
+### ⚙️ Tentang Azbry-MD
+Azbry-MD adalah bot WhatsApp Multi-Device cerdas yang dikembangkan oleh <b>FebryWesker</b> 🧠.  
+Dibangun menggunakan <b>Baileys MD</b> dengan tampilan elegan dan sistem otomatis yang efisien.
+
+Fokus utama: <b>Smart Automation & Elegant System</b>  
+Tagline: “Bot bukan cuma alat, tapi partner digital yang hidup.”
+
 <div align="center">
 
 <picture>
