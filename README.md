@@ -44,7 +44,7 @@ Bot WhatsApp Multi-Device cerdas berbasis **Baileys MD**, dengan sistem otomatis
 | **Jenis Project** | WhatsApp Multi-Device Bot |
 | **Framework** | [Baileys MD](https://github.com/WhiskeySockets/Baileys) |
 | **Fokus Utama** | Smart Automation & Elegant System |
-| **Dikembangkan oleh** | 🧠 FebryWesker |
+| **Dikembangkan oleh** |  FebryWesker |
 | **Tagline** | *"Bot bukan cuma alat, tapi partner digital yang hidup."* |
 
 ---
