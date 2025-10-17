@@ -29,12 +29,13 @@
                var(--bg);
     color:var(--text);
   }
+
   .wrap{max-width:980px;margin:0 auto;padding:28px 18px 56px}
+
   header{display:flex;align-items:center;gap:16px;margin:8px 0 22px}
-  .logo{width:60px;height:60px;border-radius:14px;object-fit:cover;display:block;
-    border:1px solid var(--ring); box-shadow:var(--shadow); background:#0f1114;}
   .brand h1{font-weight:800;line-height:1.05;font-size:clamp(28px,4.6vw,42px);margin:0}
   .brand small{display:block;margin-top:6px;color:var(--muted);font-weight:600;letter-spacing:.2px}
+
   .hero{
     margin:26px 0 28px;padding:26px;border-radius:var(--radius);
     background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
@@ -42,13 +43,19 @@
   }
   .tag{display:inline-flex;gap:8px;align-items:center;background:rgba(184,255,154,.09);
        color:#dfffe0;border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.35px;text-transform:uppercase}
-  .hero h2{margin:16px 0 12px;font-size:clamp(22px,3.8vw,30px);opacity:0;}
-  .hero p{margin:0;color:var(--muted);opacity:0;}
+
+  .hero h2{margin:16px 0 12px;font-size:clamp(22px,3.8vw,30px)}
+  .hero p{margin:0;color:var(--muted)}
+
   .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:18px}
-  .span-7{grid-column:span 7}.span-5{grid-column:span 5}
+  .span-7{grid-column:span 7}
+  .span-5{grid-column:span 5}
   @media(max-width:800px){.span-7,.span-5{grid-column:span 12}}
-  .card{background:var(--panel);border:1px solid rgba(255,255,255,.05);
-    border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);}
+
+  .card{
+    background:var(--panel); border:1px solid rgba(255,255,255,.05);
+    border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+  }
   .card h3{margin:2px 0 10px;font-size:18px}
   .card p{margin:0 0 14px;color:var(--muted)}
   .btn{
@@ -56,42 +63,49 @@
     padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none;color:#0b0d10;
     background:linear-gradient(180deg,var(--accent),var(--accent-2));
     box-shadow:0 6px 22px rgba(184,255,154,.25), inset 0 0 0 1px rgba(0,0,0,.12);
-    border:0;cursor:pointer;opacity:0;transform:translateY(10px);
-    transition:all .5s ease;
+    border:0; cursor:pointer;
+    transition:transform .25s ease, box-shadow .25s ease, opacity .45s ease;
   }
   .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.09)}
   .btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 8px 26px rgba(184,255,154,.3);}
   .btn + .btn{margin-left:10px}
   .icon{font-size:18px}
+
   section{margin-top:28px}
   .section-title{font-size:20px;margin:0 0 12px}
   .muted{color:var(--muted)}
   .stack{display:flex;flex-wrap:wrap;gap:10px}
+
   footer{margin-top:36px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .mono{opacity:.9}
+
   .fade{opacity:0;transform:translateY(6px);animation:fade .6s ease-out forwards}
   .fade.d2{animation-delay:.07s}.fade.d3{animation-delay:.14s}.fade.d4{animation-delay:.21s}
   @keyframes fade{to{opacity:1;transform:none}}
 
-  /* Animasi teks per kata */
-  .word{display:inline-block;opacity:0;transform:translateY(12px);}
+  body.js .hero h2, body.js .hero p{opacity:0}
+  body.js .word{display:inline-block;opacity:0;transform:translateY(12px)}
   @keyframes rise{to{opacity:1;transform:none}}
+
+  body.js .btn{opacity:0;transform:translateY(10px)}
+  body.js .btn.reveal{opacity:1;transform:none}
 </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- HEADER -->
     <header class="fade">
-      <img class="logo" src="https://files.catbox.moe/xv0imr.png?v=1" alt="Azbry-MD logo">
       <div class="brand">
         <h1>FebryWesker</h1>
         <small>Azbry-MD • WhatsApp Bot</small>
       </div>
     </header>
 
+    <!-- HERO -->
     <div class="hero fade d2">
       <span class="tag">Monochrome • Simple</span>
-      <h2 id="hero-title">Smart Automation & Elegant System</h2>
-      <p id="hero-desc">Tujuan utama: orang yang masuk ke sini langsung menuju <b>Azbry Sistem</b>. Tautan WhatsApp tetap ada tapi bukan fokus utama.</p>
+      <h2 id="hero-title">Selamat datang di portofolio Azbry System.</h2>
+      <p id="hero-desc">Terima kasih atas kunjungan Anda.</p>
 
       <div class="grid">
         <div class="card span-7">
@@ -100,6 +114,7 @@
           <a class="btn" href="#azbry"><span class="icon">🧠</span> Azbry Sistem</a>
           <a class="btn ghost" href="#github"><span class="icon">🌐</span> GitHub</a>
         </div>
+
         <div class="card span-5">
           <h3>Kontak Cepat</h3>
           <p class="muted">Perlu bantuan cepat via WhatsApp? Buka di sini.</p>
@@ -108,25 +123,32 @@
       </div>
     </div>
 
+    <!-- AZBRY SISTEM -->
     <section id="azbry" class="fade d2">
       <h3 class="section-title">Azbry Sistem</h3>
       <div class="card">
-        <p class="muted">Dokumentasi fitur, changelog, dan integrasi ekosistem Azbry. Ini adalah halaman yang paling disarankan untuk dikunjungi terlebih dahulu.</p>
+        <p class="muted">
+          Dokumentasi, repository, dan sistem utama Azbry-MD terpusat di GitHub. 
+          Klik tombol di bawah untuk melihat proyek inti secara langsung.
+        </p>
         <div class="stack">
-          <a class="btn" href="https://azbry-system.web.app" target="_blank" rel="noopener"><span class="icon">🚀</span> Buka Azbry Sistem</a>
-          <a class="btn ghost" href="#github"><span class="icon">📦</span> Lihat Kode di GitHub</a>
+          <a class="btn" href="https://github.com/FebryWesker/Azbry-MD" target="_blank" rel="noopener noreferrer">
+            <span class="icon">🧠</span> Azbry Sistem
+          </a>
         </div>
       </div>
     </section>
 
+    <!-- GITHUB -->
     <section id="github" class="fade d3">
       <h3 class="section-title">GitHub</h3>
       <div class="card">
         <p class="muted">Repositori publik terkait Azbry-MD, eksperimen AI, dan utilitas automasi.</p>
-        <a class="btn" href="https://github.com/FebryWesker/Azbry-MD" target="_blank" rel="noopener noreferrer"><span class="icon">🌐</span> Kunjungi GitHub</a>
+        <a class="btn" href="https://github.com/FebryWesker" target="_blank" rel="noopener"><span class="icon">🌐</span> Kunjungi GitHub</a>
       </div>
     </section>
 
+    <!-- WHATSAPP -->
     <section id="whatsapp" class="fade d4">
       <h3 class="section-title">WhatsApp</h3>
       <div class="card">
@@ -140,11 +162,12 @@
 
     <footer class="fade d4">
       <span>© <span id="y"></span> FebryWesker</span>
-      <span class="mono">Made with ❤ • Monochrome + Simple</span>
+      <span class="mono">Made with ❤ • Azbry-MD</span>
     </footer>
   </div>
 
 <script>
+  document.body.classList.add('js');
   document.getElementById('y').textContent = new Date().getFullYear();
 
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -158,33 +181,52 @@
     })
   });
 
-  // animasi teks per kata
-  function animateWords(el, delay=70){
-    const text = el.textContent.trim();
-    el.textContent = '';
-    const words = text.split(' ');
-    words.forEach((w,i)=>{
-      const span = document.createElement('span');
-      span.textContent = w + ' ';
-      span.className = 'word';
-      span.style.animation = `rise 0.6s ${i*delay}ms forwards`;
-      el.appendChild(span);
-    });
-  }
-  animateWords(document.getElementById('hero-title'), 90);
-  animateWords(document.getElementById('hero-desc'), 35);
-
-  // fade in tombol setelah teks selesai
-  window.addEventListener('load',()=>{
-    setTimeout(()=>{
-      document.querySelectorAll('.btn').forEach((b,i)=>{
-        setTimeout(()=>{
-          b.style.opacity = '1';
-          b.style.transform = 'translateY(0)';
-        }, i*150);
+  function animateWordsPreserve(node, baseDelay=70){
+    let index = 0;
+    function wrapTextNode(textNode){
+      const frag = document.createDocumentFragment();
+      const parts = textNode.textContent.split(/(\s+)/);
+      parts.forEach(part=>{
+        if(part.trim().length === 0){
+          frag.appendChild(document.createTextNode(part));
+        }else{
+          const span = document.createElement('span');
+          span.className = 'word';
+          span.textContent = part;
+          span.style.animation = `rise .6s ${index*baseDelay}ms forwards`;
+          index++;
+          frag.appendChild(span);
+        }
       });
-    },1500);
-  });
+      return frag;
+    }
+    (function walk(el){
+      const children = Array.from(el.childNodes);
+      children.forEach(ch=>{
+        if(ch.nodeType === Node.TEXT_NODE){
+          const frag = wrapTextNode(ch);
+          ch.replaceWith(frag);
+        }else if(ch.nodeType === Node.ELEMENT_NODE){
+          walk(ch);
+        }
+      });
+    })(node);
+  }
+
+  const title = document.getElementById('hero-title');
+  const desc  = document.getElementById('hero-desc');
+  animateWordsPreserve(title, 90);
+  animateWordsPreserve(desc, 40);
+
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('reveal');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: 0.15});
+  document.querySelectorAll('.btn').forEach(b=>io.observe(b));
 </script>
 </body>
 </html>
