@@ -34,6 +34,14 @@ Tagline: “Bot bukan cuma alat, tapi partner digital yang hidup.”
 </div>
 
 ---
+<p align="center">
+  <img src="https://img.shields.io/badge/Node.js-18.x-brightgreen?style=flat-square">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square">
+  <img src="https://img.shields.io/badge/Made%20by-FebryWesker-orange?style=flat-square">
+</p>
+
+
 
 <p align="center">
   <img src="https://files.catbox.moe/xv0imr.png" alt="Azbry-MD Preview" width="700">
