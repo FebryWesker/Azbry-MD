@@ -10,12 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0b0d10;
-    --panel:#111418;
-    --muted:#98a2b3;
-    --text:#e6e8ec;
-    --accent:#b8ff9a;
-    --accent-2:#8ee887;
+    --bg:#0b0d10;         /* dasar gelap */
+    --panel:#111418;      /* kartu/section */
+    --muted:#98a2b3;      /* teks sekunder */
+    --text:#e6e8ec;       /* teks utama */
+    --accent:#b8ff9a;     /* hijau neon halus */
+    --accent-2:#8ee887;   /* hijau sekunder */
     --ring:rgba(184,255,154,.18);
     --shadow:0 4px 16px rgba(0,0,0,.35);
     --radius:16px;
@@ -30,11 +30,20 @@
     color:var(--text);
   }
 
+  /* container */
   .wrap{max-width:980px;margin:0 auto;padding:28px 18px 56px}
+
+  /* brand header */
   header{display:flex;align-items:center;gap:16px;margin:8px 0 22px}
+  /*  🔧 PP kini IMG, bukan background  */
+  .logo{
+    width:60px;height:60px;border-radius:14px;object-fit:cover;display:block;
+    border:1px solid var(--ring); box-shadow:var(--shadow); background:#0f1114;
+  }
   .brand h1{font-weight:800;line-height:1.05;font-size:clamp(28px,4.6vw,42px);margin:0}
   .brand small{display:block;margin-top:6px;color:var(--muted);font-weight:600;letter-spacing:.2px}
 
+  /* hero */
   .hero{
     margin:26px 0 28px;padding:26px;border-radius:var(--radius);
     background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
@@ -45,6 +54,7 @@
   .hero h2{margin:16px 0 12px;font-size:clamp(22px,3.8vw,30px)}
   .hero p{margin:0;color:var(--muted)}
 
+  /* grid tombol utama */
   .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:18px}
   .span-7{grid-column:span 7}
   .span-5{grid-column:span 5}
@@ -67,62 +77,34 @@
   .btn + .btn{margin-left:10px}
   .icon{font-size:18px}
 
+  /* section pages */
   section{margin-top:28px}
   .section-title{font-size:20px;margin:0 0 12px}
   .muted{color:var(--muted)}
   .stack{display:flex;flex-wrap:wrap;gap:10px}
 
+  /* footer */
   footer{margin-top:36px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .mono{opacity:.9}
 
+  /* simple fade in */
   .fade{opacity:0;transform:translateY(6px);animation:fade .6s ease-out forwards}
   .fade.d2{animation-delay:.07s}.fade.d3{animation-delay:.14s}.fade.d4{animation-delay:.21s}
   @keyframes fade{to{opacity:1;transform:none}}
-
-  /* ===================== *
-   *  ANIMASI TAMBAHAN    *
-   * ===================== */
-
-  /* Word-by-word: span.word dibuat via JS */
-  .w-animate .word{
-    display:inline-block;
-    opacity:0;
-    transform:translateY(10px);
-    filter:blur(2px);
-  }
-  .w-animate.in .word{
-    animation:wordIn .55s cubic-bezier(.2,.8,.2,1) forwards;
-    animation-delay:calc(var(--i) * 60ms);
-  }
-  @keyframes wordIn{
-    to{opacity:1;transform:none;filter:blur(0)}
-  }
-
-  /* Button stagger fade-in (ditandai via JS .btn-anim) */
-  .btn-anim{
-    opacity:0; transform:translateY(8px);
-  }
-  .btn-anim.in{
-    transition:opacity .5s ease, transform .5s ease;
-    transition-delay:var(--delay,0ms);
-    opacity:1; transform:none;
-  }
-
-  /* Honor reduced motion */
-  @media (prefers-reduced-motion: reduce){
-    .fade, .w-animate .word, .btn-anim{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important}
-  }
 </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- HEADER -->
     <header class="fade">
+      <img class="logo" src="https://files.catbox.moe/xv0imr.png?v=1" alt="Azbry-MD logo">
       <div class="brand">
         <h1>FebryWesker</h1>
         <small>Azbry-MD • WhatsApp Bot</small>
       </div>
     </header>
 
+    <!-- HERO -->
     <div class="hero fade d2">
       <span class="tag">Monochrome • Simple</span>
       <h2>Smart Automation & Elegant System</h2>
@@ -144,6 +126,7 @@
       </div>
     </div>
 
+    <!-- AZBRY SISTEM -->
     <section id="azbry" class="fade d2">
       <h3 class="section-title">Azbry Sistem</h3>
       <div class="card">
@@ -155,6 +138,7 @@
       </div>
     </section>
 
+    <!-- GITHUB -->
     <section id="github" class="fade d3">
       <h3 class="section-title">GitHub</h3>
       <div class="card">
@@ -163,6 +147,7 @@
       </div>
     </section>
 
+    <!-- WHATSAPP -->
     <section id="whatsapp" class="fade d4">
       <h3 class="section-title">WhatsApp</h3>
       <div class="card">
@@ -184,7 +169,7 @@
   // tahun otomatis
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // scroll halus untuk anchor
+  // scroll halus kalau klik #hash
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click',e=>{
       const id=a.getAttribute('href');
@@ -195,59 +180,6 @@
       }
     })
   });
-
-  /* ===================== *
-   *  ANIMASI TAMBAHAN    *
-   * ===================== */
-
-  // 1) Word-by-word: bungkus setiap kata jadi <span class="word" style="--i:n">
-  function splitToWords(el){
-    if(!el || el.dataset.wdone) return;
-    const text = el.textContent.trim().replace(/\s+/g,' ');
-    const words = text.split(' ');
-    el.innerHTML = words.map((w,i)=>`<span class="word" style="--i:${i}">${w}</span>`).join(' ');
-    el.parentElement.classList.add('w-animate'); // pakai di container biar rapih
-    el.dataset.wdone = '1';
-  }
-
-  // target: title brand, hero h2, semua .section-title
-  const targets = [
-    document.querySelector('.brand h1'),
-    document.querySelector('.hero h2'),
-    ...document.querySelectorAll('.section-title')
-  ].filter(Boolean);
-
-  targets.forEach(splitToWords);
-
-  // Observer: saat elemen terlihat, tambahkan .in untuk trigger animasi kata & tombol
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        const section = entry.target;
-
-        // aktifkan word-by-word
-        const wContainer = section.querySelector('.w-animate');
-        if(wContainer) wContainer.classList.add('in');
-
-        // aktifkan tombol dengan stagger
-        const btns = section.querySelectorAll('.btn');
-        btns.forEach((b,idx)=>{
-          b.classList.add('btn-anim');
-          b.style.setProperty('--delay', (idx*90)+'ms');
-          requestAnimationFrame(()=> b.classList.add('in'));
-        });
-
-        io.unobserve(section);
-      }
-    })
-  }, { rootMargin: '0px 0px -10% 0px', threshold: .15 });
-
-  // Observe hero + setiap section
-  const observables = [
-    document.querySelector('.hero'),
-    ...document.querySelectorAll('section')
-  ].filter(Boolean);
-  observables.forEach(sec=>io.observe(sec));
 </script>
 </body>
 </html>
