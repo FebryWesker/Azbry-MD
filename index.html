@@ -9,14 +9,15 @@
 :root{
   --bg:#0f0f10; --surface:#111214; --card:#141518;
   --ring:#26272b; --shadow:0 2px 24px rgba(0,0,0,.35);
-  --txt:#F3F4F6; --muted:#A1A1AA; --ink:#E5E7EB; --ghost:#1b1c20;
-  --accent:#9CA3AF; /* abu netral (ambil nuansa dari PP) */
+  --txt:#F3F4F6; --muted:#B3B3BB; --ink:#F9FAFB; --ghost:#1b1c20;
+  --accent:#E5E7EB;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;background:var(--bg);color:var(--txt);
-  font:16px/1.6 Inter,system-ui,Segoe UI,Roboto,Arial;
+  /* ➜ Naikin base font */
+  font:18px/1.7 Inter,system-ui,Segoe UI,Roboto,Arial;
   overflow-x:hidden;
 }
 
@@ -27,84 +28,89 @@ header{
   transition:box-shadow .3s ease, background .3s ease;
 }
 header.scrolled{ box-shadow:0 4px 18px rgba(0,0,0,.4) }
-.wrap{max-width:1120px;margin:0 auto;padding:24px}
+.wrap{max-width:1120px;margin:0 auto;padding:26px 22px}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--txt)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--txt)}
 .logo{
-  width:40px;height:40px;border-radius:10px;border:1px solid var(--ring);
+  width:52px;height:52px;border-radius:12px;border:1px solid var(--ring);
   background:url('https://files.catbox.moe/xv0imr.png') center/cover no-repeat;
   animation:pulse 3s infinite ease-in-out;
 }
-.brand h1{margin:0;font-size:18px;font-weight:800;letter-spacing:.2px}
-.brand small{display:block;margin-top:-2px;color:var(--muted);font-weight:600}
+.brand h1{margin:0;font-size:22px;font-weight:800;letter-spacing:.2px}
+.brand small{display:block;margin-top:2px;color:var(--muted);font-weight:600;font-size:14px}
 
-.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
 .tab{
   appearance:none;border:1px solid transparent;background:transparent;color:var(--txt);
-  padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;
+  padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;font-size:16px;
   transition:all .25s ease;
 }
 .tab:hover{background:#1a1a1c;border-color:var(--ring);transform:translateY(-1px)}
 .tab.active{background:#1a1a1c;border-color:var(--ring)}
 
 /* ====== Sections / Animations ====== */
-main{padding:20px 0 64px}
+main{padding:24px 0 72px}
 .section{display:none;opacity:0;transform:translateY(14px);animation:fadeUp .45s ease forwards}
 .section.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.06);opacity:.9}}
 
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
 @media (max-width:900px){.hero{grid-template-columns:1fr}}
 
-.title{margin:0 0 8px;font-size:clamp(28px,4vw,40px);font-weight:800}
-.lead{margin:0 0 22px;color:var(--muted)}
+.title{
+  margin:0 0 10px;
+  /* ➜ Naikin ukuran judul */
+  font-size:clamp(34px, 6.2vw, 52px);
+  font-weight:800;
+}
+.lead{margin:0 0 24px;color:var(--ink);font-size:19px}
 .badge{
-  display:inline-flex;align-items:center;gap:8px;
+  display:inline-flex;align-items:center;gap:10px;
   background:var(--ghost); color:var(--ink); border:1px solid #2a2b2f;
-  padding:6px 12px;border-radius:999px;font-weight:600;font-size:13px;
+  padding:8px 14px;border-radius:999px;font-weight:700;font-size:14px;
   animation:fadeIn .6s ease both;
 }
 @keyframes fadeIn{from{opacity:0} to{opacity:1}}
 
 .card,.heroCard{
-  background:var(--card); border:1px solid var(--ring); border-radius:16px;
-  padding:22px; box-shadow:var(--shadow);
+  background:var(--card); border:1px solid var(--ring); border-radius:18px;
+  padding:24px; box-shadow:var(--shadow);
   transition:transform .25s ease, box-shadow .25s ease;
 }
 .card:hover,.heroCard:hover{transform:translateY(-4px);box-shadow:0 6px 24px rgba(0,0,0,.5)}
-.card h3{margin:0 0 6px;font-size:18px}
-.meta{color:var(--muted);font-size:14px;margin:0}
+.card h3{margin:0 0 10px;font-size:22px}
+.meta{color:var(--muted);font-size:16px;margin:0}
 
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:12px 16px;border-radius:12px;border:1px solid var(--ring);
-  background:#1b1c20;color:var(--txt);text-decoration:none;font-weight:700;
+  padding:14px 18px;border-radius:14px;border:1px solid var(--ring);
+  background:#1b1c20;color:var(--txt);text-decoration:none;font-weight:800;font-size:16px;
   transition:all .25s ease;
 }
-.btn:hover{transform:translateY(-2px);box-shadow:0 0 10px rgba(255,255,255,.1)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 12px rgba(255,255,255,.1)}
 .btn.primary{background:var(--accent);color:#000;border-color:transparent}
-.btn.primary:hover{background:#d1d5db;box-shadow:0 0 12px #9ca3af55}
+.btn.primary:hover{background:#d1d5db;box-shadow:0 0 14px #9ca3af55}
 .btn.ghost{background:var(--ghost);color:var(--ink);border-color:#2a2b2f}
 
-ul.clean{padding-left:18px;margin:6px 0}
-ul.clean li{margin:6px 0}
+ul.clean{padding-left:20px;margin:6px 0}
+ul.clean li{margin:8px 0}
 
-footer{border-top:1px solid var(--ring);padding:24px 0;text-align:center;color:var(--muted)}
+footer{border-top:1px solid var(--ring);padding:26px 0;text-align:center;color:var(--muted);font-size:15px}
 </style>
 </head>
 <body>
 <header id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="#home">
-      <div class="logo"></div>
+    <a class="brand" href="#home" aria-label="Kembali ke beranda">
+      <div class="logo" aria-hidden="true"></div>
       <div>
         <h1>FebryWesker</h1>
         <small>Azbry-MD • WhatsApp Bot</small>
       </div>
     </a>
-    <nav class="tabs">
+    <nav class="tabs" aria-label="Navigasi">
       <a class="tab" id="tab-home" href="#home">Beranda</a>
       <a class="tab" id="tab-whatsapp" href="#whatsapp">WhatsApp</a>
       <a class="tab" id="tab-github" href="#github">GitHub</a>
@@ -115,12 +121,12 @@ footer{border-top:1px solid var(--ring);padding:24px 0;text-align:center;color:v
 
 <main class="wrap">
   <!-- Home -->
-  <section id="home" class="section active">
+  <section id="home" class="section active" aria-labelledby="home-title">
     <div class="hero">
       <div>
         <span class="badge">⚙️ Azbry-MD • Stable</span>
-        <h2 class="title">WhatsApp multi-device bot — cepat, ringan, dan modular.</h2>
-        <p class="lead">Dibangun & dikelola oleh <strong>FebryWesker</strong>.</p>
+        <h2 id="home-title" class="title">WhatsApp multi-device bot — cepat, ringan, dan modular.</h2>
+        <p class="lead">Dibangun & dikelola oleh <strong>FebryWesker</strong>. Desain monokrom biar fokus ke konten, bukan warna.</p>
         <div class="actions">
           <a class="btn primary" href="#whatsapp">Hubungi via WhatsApp</a>
           <a class="btn" href="#github">Lihat GitHub</a>
@@ -142,10 +148,10 @@ footer{border-top:1px solid var(--ring);padding:24px 0;text-align:center;color:v
   </section>
 
   <!-- WhatsApp -->
-  <section id="whatsapp" class="section">
+  <section id="whatsapp" class="section" aria-labelledby="wa-title">
     <div class="card">
-      <h3>Kontak WhatsApp</h3>
-      <p class="meta">Pilih jalur kontak di bawah untuk instalasi, bantuan, atau laporan bug.</p>
+      <h3 id="wa-title">Kontak WhatsApp</h3>
+      <p class="meta">Pilih jalur kontak untuk instalasi, bantuan, atau laporan bug.</p>
       <div class="actions">
         <a class="btn primary" href="https://wa.me/6281510040802" target="_blank" rel="noopener">Owner • 6281510040802</a>
         <a class="btn" href="https://wa.me/6285189988271" target="_blank" rel="noopener">Bot • 6285189988271</a>
@@ -154,9 +160,9 @@ footer{border-top:1px solid var(--ring);padding:24px 0;text-align:center;color:v
   </section>
 
   <!-- GitHub -->
-  <section id="github" class="section">
+  <section id="github" class="section" aria-labelledby="gh-title">
     <div class="card">
-      <h3>Repositori Azbry-MD</h3>
+      <h3 id="gh-title">Repositori Azbry-MD</h3>
       <p class="meta">Kode sumber publik, rilis, dan isu pelaporan untuk ekosistem Azbry.</p>
       <div class="actions">
         <a class="btn primary" href="https://github.com/FebryWesker/Azbry-MD" target="_blank" rel="noopener">Buka GitHub</a>
@@ -165,9 +171,9 @@ footer{border-top:1px solid var(--ring);padding:24px 0;text-align:center;color:v
   </section>
 
   <!-- Azbry Sistem -->
-  <section id="azbry" class="section">
+  <section id="azbry" class="section" aria-labelledby="az-title">
     <div class="card">
-      <h3>Azbry Sistem — Fitur Utama</h3>
+      <h3 id="az-title">Azbry Sistem — Fitur Utama</h3>
       <ul class="clean">
         <li>Level & XP (on-message)</li>
         <li>Pengingat Sholat (jadwal manual per zona)</li>
@@ -180,7 +186,7 @@ footer{border-top:1px solid var(--ring);padding:24px 0;text-align:center;color:v
   </section>
 </main>
 
-<footer>© <span id="year"></span> FebryWesker — Monokrom + animasi halus</footer>
+<footer>© <span id="year"></span> FebryWesker. All rights reserved.</footer>
 
 <script>
 const sections = ["home","whatsapp","github","azbry"];
@@ -194,18 +200,16 @@ function setActive(id){
   });
   window.scrollTo({top:0, behavior:"instant"});
 }
-
 function resolve(){
   const hash = (location.hash || "#home").slice(1);
   setActive(sections.includes(hash)? hash : "home");
 }
-
 window.addEventListener("hashchange", resolve);
 resolve();
 
 $("year").textContent = new Date().getFullYear();
 
-const hdr = $("hdr");
+const hdr = document.getElementById("hdr");
 window.addEventListener("scroll", ()=> hdr.classList.toggle("scrolled", window.scrollY > 20));
 </script>
 </body>
