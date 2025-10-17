@@ -1,158 +1,253 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FebryWesker — Azbry-MD</title>
-  <meta name="description" content="Developer • Smart Automation & Elegant System" />
-
-  <!-- THEME (tetap sama) -->
-  <meta name="color-scheme" content="dark light" />
-  <meta name="theme-color" content="#101114" />
-
-  <!-- 1) Favicon + Open Graph/Twitter -->
-  <link rel="icon" href="https://files.catbox.moe/xv0imr.png" />
-  <meta property="og:title" content="FebryWesker — Azbry-MD" />
-  <meta property="og:description" content="Smart Automation & Elegant System" />
-  <meta property="og:image" content="https://files.catbox.moe/xv0imr.png" />
-  <meta property="og:url" content="https://azbry-portofolio.vercel.app/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FebryWesker — Azbry-MD" />
-  <meta name="twitter:description" content="Smart Automation & Elegant System" />
-  <meta name="twitter:image" content="https://files.catbox.moe/xv0imr.png" />
-
-  <!-- 2) SEO dasar -->
-  <link rel="canonical" href="https://azbry-portofolio.vercel.app/" />
-
-  <!-- 3) Aksesibilitas: outline fokus jelas -->
-  <style>
-    :focus-visible {
-      outline: 2px solid #b8ff9a;
-      outline-offset: 3px;
-      border-radius: 10px;
-    }
-  </style>
-
-  <!-- 4) Performa font: preconnect + display=swap -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <!-- ====== GAYA UTAMA (TEMA TIDAK DIUBAH) ====== -->
-  <style>
-    :root{
-      --bg:#0f1013; --bg-soft:#14161a; --card:#16181d; --card-2:#1b1e24;
-      --text:#eaecef; --muted:#a9afb8; --accent:#b8ff9a; --accent-2:#e6ffe1;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,Segoe UI,Roboto,Arial,sans-serif}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1000px;margin:0 auto;padding:32px 20px}
-    header{display:flex;align-items:center;gap:16px;margin-bottom:28px}
-    .logo{width:56px;height:56px;border-radius:14px;background:#1b1e24 url('https://files.catbox.moe/xv0imr.png') center/cover no-repeat;box-shadow:0 4px 22px rgba(0,0,0,.35)}
-    .brand h1{font-size:32px;letter-spacing:.4px;margin:0 0 4px 0}
-    .brand p{margin:0;color:var(--muted);font-weight:500}
-    main{display:grid;gap:22px}
-    .card{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid #22252c;border-radius:18px;padding:22px}
-    .hero{display:grid;gap:14px}
-    .title{font-size:44px;font-weight:800;letter-spacing:.6px;margin:4px 0 0}
-    .kicker{color:var(--muted);font-weight:600}
-    .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;background:#1e2128;border:1px solid #2a2e37;font-weight:700}
-    .btn.primary{background:linear-gradient(180deg,#242a31,#1e2329);border-color:#303640;box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
-    .btn .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
-    .badge{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:30px;background:linear-gradient(180deg,#20242a,#1b1f25);border:1px solid #2b313b;font-size:22px;font-weight:800}
-    .badge .brain{font-size:22px}
-    .section-title{font-size:18px;color:var(--muted);margin:0 0 10px 0;font-weight:700}
-    footer{display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);margin-top:6px}
-    .links{display:flex;gap:10px;flex-wrap:wrap}
-    .pill{padding:8px 12px;border-radius:999px;background:#1e2128;border:1px solid #2a2e37}
-    @media (max-width:640px){
-      .title{font-size:34px}
-      .brand h1{font-size:28px}
-      .badge{font-size:20px}
-    }
-  </style>
-
-  <!-- 2) JSON-LD Schema (Person) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"FebryWesker",
-    "url":"https://azbry-portofolio.vercel.app/",
-    "sameAs":["https://github.com/FebryWesker"],
-    "jobTitle":"Developer",
-    "worksFor":{"@type":"Organization","name":"Azbry System"}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FebryWesker — Azbry-MD</title>
+<meta name="description" content="Portofolio ringkas FebryWesker (Azbry-MD). Smart Automation & Elegant System." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d10;
+    --panel:#111418;
+    --muted:#98a2b3;
+    --text:#e6e8ec;
+    --accent:#b8ff9a;
+    --accent-2:#8ee887;
+    --ring:rgba(184,255,154,.18);
+    --shadow:0 4px 16px rgba(0,0,0,.35);
+    --radius:16px;
   }
-  </script>
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+    background:radial-gradient(1200px 800px at 20% -10%, rgba(184,255,154,.06), transparent 40%),
+               radial-gradient(1000px 700px at 120% 30%, rgba(184,255,154,.04), transparent 35%),
+               var(--bg);
+    color:var(--text);
+  }
+
+  .wrap{max-width:980px;margin:0 auto;padding:28px 18px 56px}
+  header{display:flex;align-items:center;gap:16px;margin:8px 0 22px}
+  .brand h1{font-weight:800;line-height:1.05;font-size:clamp(28px,4.6vw,42px);margin:0}
+  .brand small{display:block;margin-top:6px;color:var(--muted);font-weight:600;letter-spacing:.2px}
+
+  .hero{
+    margin:26px 0 28px;padding:26px;border-radius:var(--radius);
+    background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
+    border:1px solid rgba(255,255,255,.04); box-shadow:var(--shadow);
+  }
+  .tag{display:inline-flex;gap:8px;align-items:center;background:rgba(184,255,154,.09);
+       color:#dfffe0;border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.35px;text-transform:uppercase}
+  .hero h2{margin:16px 0 12px;font-size:clamp(22px,3.8vw,30px)}
+  .hero p{margin:0;color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:18px}
+  .span-7{grid-column:span 7}
+  .span-5{grid-column:span 5}
+  @media(max-width:800px){.span-7,.span-5{grid-column:span 12}}
+
+  .card{
+    background:var(--panel); border:1px solid rgba(255,255,255,.05);
+    border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+  }
+  .card h3{margin:2px 0 10px;font-size:18px}
+  .card p{margin:0 0 14px;color:var(--muted)}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none;color:#0b0d10;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2));
+    box-shadow:0 6px 22px rgba(184,255,154,.25), inset 0 0 0 1px rgba(0,0,0,.12);
+    border:0; cursor:pointer;
+  }
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.09)}
+  .btn + .btn{margin-left:10px}
+  .icon{font-size:18px}
+
+  section{margin-top:28px}
+  .section-title{font-size:20px;margin:0 0 12px}
+  .muted{color:var(--muted)}
+  .stack{display:flex;flex-wrap:wrap;gap:10px}
+
+  footer{margin-top:36px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .mono{opacity:.9}
+
+  .fade{opacity:0;transform:translateY(6px);animation:fade .6s ease-out forwards}
+  .fade.d2{animation-delay:.07s}.fade.d3{animation-delay:.14s}.fade.d4{animation-delay:.21s}
+  @keyframes fade{to{opacity:1;transform:none}}
+
+  /* ===================== *
+   *  ANIMASI TAMBAHAN    *
+   * ===================== */
+
+  /* Word-by-word: span.word dibuat via JS */
+  .w-animate .word{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(10px);
+    filter:blur(2px);
+  }
+  .w-animate.in .word{
+    animation:wordIn .55s cubic-bezier(.2,.8,.2,1) forwards;
+    animation-delay:calc(var(--i) * 60ms);
+  }
+  @keyframes wordIn{
+    to{opacity:1;transform:none;filter:blur(0)}
+  }
+
+  /* Button stagger fade-in (ditandai via JS .btn-anim) */
+  .btn-anim{
+    opacity:0; transform:translateY(8px);
+  }
+  .btn-anim.in{
+    transition:opacity .5s ease, transform .5s ease;
+    transition-delay:var(--delay,0ms);
+    opacity:1; transform:none;
+  }
+
+  /* Honor reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .fade, .w-animate .word, .btn-anim{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important}
+  }
+</style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <div class="logo" aria-hidden="true"></div>
+    <header class="fade">
       <div class="brand">
         <h1>FebryWesker</h1>
-        <p>Azbry-MD • WhatsApp Bot</p>
+        <small>Azbry-MD • WhatsApp Bot</small>
       </div>
     </header>
 
-    <!-- HERO -->
-    <section class="card hero" id="home" aria-labelledby="hero-title">
-      <p class="kicker">Developer • Smart Automation & Elegant System</p>
-      <h2 class="title" id="hero-title">Azbry System</h2>
-      <div class="btns" role="group" aria-label="Tautan utama">
-        <a class="btn primary" href="#azbry" aria-label="Buka bagian Azbry Sistem">
-          <span class="dot" aria-hidden="true"></span> Buka Azbry Sistem
-        </a>
-        <a class="btn" href="https://github.com/FebryWesker" target="_blank" rel="noopener" aria-label="Kunjungi GitHub">
-          <span class="dot" aria-hidden="true"></span> GitHub
-        </a>
+    <div class="hero fade d2">
+      <span class="tag">Monochrome • Simple</span>
+      <h2>Smart Automation & Elegant System</h2>
+      <p>Tujuan utama: orang yang masuk ke sini langsung menuju <b>Azbry Sistem</b>. Tautan WhatsApp tetap ada tapi bukan fokus utama.</p>
+
+      <div class="grid">
+        <div class="card span-7">
+          <h3>Prioritas Utama</h3>
+          <p class="muted">Dokumentasi & pusat layanan Azbry.</p>
+          <a class="btn" href="#azbry"><span class="icon">🧠</span> Azbry Sistem</a>
+          <a class="btn ghost" href="#github"><span class="icon">🌐</span> GitHub</a>
+        </div>
+
+        <div class="card span-5">
+          <h3>Kontak Cepat</h3>
+          <p class="muted">Perlu bantuan cepat via WhatsApp? Buka di sini.</p>
+          <a class="btn ghost" href="#whatsapp"><span class="icon">💬</span> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="azbry" class="fade d2">
+      <h3 class="section-title">Azbry Sistem</h3>
+      <div class="card">
+        <p class="muted">Dokumentasi fitur, changelog, dan integrasi ekosistem Azbry. Ini adalah halaman yang paling disarankan untuk dikunjungi terlebih dahulu.</p>
+        <div class="stack">
+          <a class="btn" href="https://azbry-system.web.app" target="_blank" rel="noopener"><span class="icon">🚀</span> Buka Azbry Sistem</a>
+          <a class="btn ghost" href="#github"><span class="icon">📦</span> Lihat Kode di GitHub</a>
+        </div>
       </div>
     </section>
 
-    <!-- BADGE UTAMA -->
-    <section class="card" id="azbry">
-      <div class="badge" aria-label="Tombol menuju Azbry Sistem">
-        <span class="brain">🧠</span> Azbry Sistem
-      </div>
-      <p style="margin:12px 0 0;color:var(--muted)">
-        Platform otomasi yang fokus pada kerapihan, stabilitas, dan kemudahan operasional.
-      </p>
-      <div class="btns" style="margin-top:14px">
-        <a class="btn primary" href="https://azbry-system.web.app" target="_blank" rel="noopener">
-          <span class="dot" aria-hidden="true"></span> Masuk ke Platform
-        </a>
-        <a class="btn" href="https://github.com/FebryWesker" target="_blank" rel="noopener">
-          <span class="dot" aria-hidden="true"></span> Lihat Kode Sumber
-        </a>
+    <section id="github" class="fade d3">
+      <h3 class="section-title">GitHub</h3>
+      <div class="card">
+        <p class="muted">Repositori publik terkait Azbry-MD, eksperimen AI, dan utilitas automasi.</p>
+        <a class="btn" href="https://github.com/FebryWesker" target="_blank" rel="noopener"><span class="icon">🌐</span> Kunjungi GitHub</a>
       </div>
     </section>
 
-    <!-- WHATSAPP -->
-    <section class="card" aria-labelledby="wa-title">
-      <h3 class="section-title" id="wa-title">Kontak WhatsApp</h3>
-      <p style="margin:0 0 10px;color:var(--muted)">
-        Pilih kontak sesuai kebutuhan. Nomor tidak ditampilkan langsung untuk menghindari scraping.
-      </p>
-      <div class="btns">
-        <a class="btn" href="https://wa.me/6281510040802" target="_blank" rel="noopener" aria-label="Hubungi nomor owner via WhatsApp">
-          <span class="dot" aria-hidden="true"></span> Nomor Owner
-        </a>
-        <a class="btn" href="https://wa.me/6285189988271" target="_blank" rel="noopener" aria-label="Hubungi nomor bot via WhatsApp">
-          <span class="dot" aria-hidden="true"></span> Nomor Bot
-        </a>
+    <section id="whatsapp" class="fade d4">
+      <h3 class="section-title">WhatsApp</h3>
+      <div class="card">
+        <p class="muted">Pilih salah satu tombol di bawah untuk membuka chat. Nomor tidak ditampilkan di halaman ini demi privasi.</p>
+        <div class="stack">
+          <a class="btn" href="https://wa.me/6281510040802" target="_blank" rel="noopener"><span class="icon">👤</span> Nomor Owner</a>
+          <a class="btn ghost" href="https://wa.me/6285189988271" target="_blank" rel="noopener"><span class="icon">🤖</span> Nomor Bot</a>
+        </div>
       </div>
     </section>
 
-    <footer>
-      <span>© 2025 FebryWesker</span>
-      <div class="links">
-        <a class="pill" href="https://github.com/FebryWesker" target="_blank" rel="noopener">GitHub</a>
-        <a class="pill" href="#azbry">Azbry Sistem</a>
-      </div>
+    <footer class="fade d4">
+      <span>© <span id="y"></span> FebryWesker</span>
+      <span class="mono">Made with ❤ • Monochrome + Simple</span>
     </footer>
   </div>
+
+<script>
+  // tahun otomatis
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // scroll halus untuk anchor
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      if(id.length>1){
+        e.preventDefault();
+        document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+        history.pushState(null,'',id);
+      }
+    })
+  });
+
+  /* ===================== *
+   *  ANIMASI TAMBAHAN    *
+   * ===================== */
+
+  // 1) Word-by-word: bungkus setiap kata jadi <span class="word" style="--i:n">
+  function splitToWords(el){
+    if(!el || el.dataset.wdone) return;
+    const text = el.textContent.trim().replace(/\s+/g,' ');
+    const words = text.split(' ');
+    el.innerHTML = words.map((w,i)=>`<span class="word" style="--i:${i}">${w}</span>`).join(' ');
+    el.parentElement.classList.add('w-animate'); // pakai di container biar rapih
+    el.dataset.wdone = '1';
+  }
+
+  // target: title brand, hero h2, semua .section-title
+  const targets = [
+    document.querySelector('.brand h1'),
+    document.querySelector('.hero h2'),
+    ...document.querySelectorAll('.section-title')
+  ].filter(Boolean);
+
+  targets.forEach(splitToWords);
+
+  // Observer: saat elemen terlihat, tambahkan .in untuk trigger animasi kata & tombol
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const section = entry.target;
+
+        // aktifkan word-by-word
+        const wContainer = section.querySelector('.w-animate');
+        if(wContainer) wContainer.classList.add('in');
+
+        // aktifkan tombol dengan stagger
+        const btns = section.querySelectorAll('.btn');
+        btns.forEach((b,idx)=>{
+          b.classList.add('btn-anim');
+          b.style.setProperty('--delay', (idx*90)+'ms');
+          requestAnimationFrame(()=> b.classList.add('in'));
+        });
+
+        io.unobserve(section);
+      }
+    })
+  }, { rootMargin: '0px 0px -10% 0px', threshold: .15 });
+
+  // Observe hero + setiap section
+  const observables = [
+    document.querySelector('.hero'),
+    ...document.querySelectorAll('section')
+  ].filter(Boolean);
+  observables.forEach(sec=>io.observe(sec));
+</script>
 </body>
 </html>
