@@ -2,263 +2,184 @@
 <html lang="id">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Azbry-MD • FebryWesker</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FebryWesker — Azbry-MD</title>
+<meta name="description" content="Portofolio ringkas FebryWesker (Azbry-MD). Smart Automation & Elegant System." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0e0f11; --surface:#111317; --card:#15171b; --ring:#24262b;
-  --txt:#F3F4F6; --muted:#B7BBC5; --ink:#FAFAFB; --ghost:#1a1c21; --accent:#E6E8EC;
-  --shadow:0 6px 32px rgba(0,0,0,.35);
-  --radius:18px;
-  --space:26px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; background:var(--bg); color:var(--txt);
-  font:17.5px/1.9 "Plus Jakarta Sans",system-ui,Segoe UI,Roboto,Arial;
-  letter-spacing:.1px; -webkit-font-smoothing:antialiased; overflow-x:hidden;
-}
+  :root{
+    --bg:#0b0d10;         /* dasar gelap */
+    --panel:#111418;      /* kartu/section */
+    --muted:#98a2b3;      /* teks sekunder */
+    --text:#e6e8ec;       /* teks utama */
+    --accent:#b8ff9a;     /* hijau neon halus */
+    --accent-2:#8ee887;   /* hijau sekunder */
+    --ring:rgba(184,255,154,.18);
+    --shadow:0 4px 16px rgba(0,0,0,.35);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+    background:radial-gradient(1200px 800px at 20% -10%, rgba(184,255,154,.06), transparent 40%),
+               radial-gradient(1000px 700px at 120% 30%, rgba(184,255,154,.04), transparent 35%),
+               var(--bg);
+    color:var(--text);
+  }
 
-/* ===== Ribbon ===== */
-.ribbon{
-  background:#17191d; border-bottom:1px solid var(--ring);
-  text-align:center; padding:12px 14px; position:sticky; top:0; z-index:60;
-}
-.ribbon a{color:#000;background:var(--accent);padding:9px 16px;border-radius:999px;
-  text-decoration:none;font-weight:800;display:inline-block}
+  /* container */
+  .wrap{max-width:980px;margin:0 auto;padding:28px 18px 56px}
 
-/* ===== Header ===== */
-header{background:var(--surface);border-bottom:1px solid var(--ring);position:sticky;top:54px;z-index:50}
-.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0}
-.brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--txt)}
-.logo{
-  width:58px;height:58px;border-radius:14px;border:1px solid var(--ring);
-  background:url('https://imgur.com/a/8kjlL3f') center/cover no-repeat;
-  box-shadow:var(--shadow);
-}
-.brand h1{margin:0;font-size:24px;font-weight:800}
-.brand small{display:block;margin-top:4px;color:var(--muted);font-weight:600;font-size:14px}
+  /* brand header */
+  header{display:flex;align-items:center;gap:16px;margin:8px 0 22px}
+  /*  🔧 PP kini IMG, bukan background  */
+  .logo{
+    width:60px;height:60px;border-radius:14px;object-fit:cover;display:block;
+    border:1px solid var(--ring); box-shadow:var(--shadow); background:#0f1114;
+  }
+  .brand h1{font-weight:800;line-height:1.05;font-size:clamp(28px,4.6vw,42px);margin:0}
+  .brand small{display:block;margin-top:6px;color:var(--muted);font-weight:600;letter-spacing:.2px}
 
-.tabs{display:flex;gap:10px;flex-wrap:wrap}
-.tab{
-  appearance:none;border:1px solid transparent;background:transparent;color:var(--txt);
-  padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;font-size:16px;transition:.25s
-}
-.tab:hover{background:#1b1d22;border-color:var(--ring);transform:translateY(-1px)}
-.tab.active{background:#1b1d22;border-color:var(--ring)}
+  /* hero */
+  .hero{
+    margin:26px 0 28px;padding:26px;border-radius:var(--radius);
+    background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
+    border:1px solid rgba(255,255,255,.04); box-shadow:var(--shadow);
+  }
+  .tag{display:inline-flex;gap:8px;align-items:center;background:rgba(184,255,154,.09);
+       color:#dfffe0;border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.35px;text-transform:uppercase}
+  .hero h2{margin:16px 0 12px;font-size:clamp(22px,3.8vw,30px)}
+  .hero p{margin:0;color:var(--muted)}
 
-/* ===== Layout ===== */
-main{padding:34px 0 128px}
-.section{display:none;opacity:0;transform:translateY(14px);animation:fadeUp .45s ease forwards}
-.section.active{display:block}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)}}
+  /* grid tombol utama */
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:18px}
+  .span-7{grid-column:span 7}
+  .span-5{grid-column:span 5}
+  @media(max-width:800px){.span-7,.span-5{grid-column:span 12}}
 
-.title{margin:0 0 10px;font-size:clamp(36px,6.0vw,56px);font-weight:800;line-height:1.2}
-.lead{margin:0 0 26px;color:var(--ink);font-size:19px}
+  .card{
+    background:var(--panel); border:1px solid rgba(255,255,255,.05);
+    border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+  }
+  .card h3{margin:2px 0 10px;font-size:18px}
+  .card p{margin:0 0 14px;color:var(--muted)}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none;color:#0b0d10;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2));
+    box-shadow:0 6px 22px rgba(184,255,154,.25), inset 0 0 0 1px rgba(0,0,0,.12);
+    border:0; cursor:pointer;
+  }
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.09)}
+  .btn + .btn{margin-left:10px}
+  .icon{font-size:18px}
 
-.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:start}
-@media (max-width:980px){.grid{grid-template-columns:1fr}}
+  /* section pages */
+  section{margin-top:28px}
+  .section-title{font-size:20px;margin:0 0 12px}
+  .muted{color:var(--muted)}
+  .stack{display:flex;flex-wrap:wrap;gap:10px}
 
-.stack>*+*{margin-top:var(--space)} /* spasi antar elemen vertikal */
+  /* footer */
+  footer{margin-top:36px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .mono{opacity:.9}
 
-/* ===== Cards ===== */
-.card,.heroCard{
-  background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);
-  padding:24px 22px;box-shadow:var(--shadow);
-  transition:transform .25s ease, box-shadow .25s ease
-}
-.card:hover,.heroCard:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.5)}
-.card h3{margin:0 0 10px;font-size:22px}
-.meta{color:var(--muted);font-size:16px;margin:0}
-.kicker{
-  display:inline-flex;gap:10px;background:var(--ghost);color:var(--ink);
-  border:1px solid #2a2d33;padding:9px 14px;border-radius:999px;font-weight:800;font-size:14px
-}
-
-/* ===== Buttons ===== */
-.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:14px 18px;border-radius:14px;border:1px solid var(--ring);
-  background:#1b1d22;color:var(--txt);text-decoration:none;font-weight:800;font-size:16px;transition:.25s
-}
-.btn:hover{transform:translateY(-2px);box-shadow:0 0 12px rgba(255,255,255,.08)}
-.btn.primary{background:var(--accent);color:#000;border-color:transparent}
-.btn.primary:hover{background:#d8dbe0}
-.btn.ghost{background:#17191e;color:var(--ink);border-color:#2a2d33}
-
-/* ===== Lists ===== */
-ul.clean{padding-left:20px;margin:8px 0} ul.clean li{margin:8px 0}
-
-/* ===== Sticky CTA ===== */
-.sticky{
-  position:fixed;left:0;right:0;bottom:0;z-index:70;
-  background:linear-gradient(180deg,rgba(14,15,17,0),#0e0f11 28%);
-  padding:18px 16px;border-top:1px solid var(--ring)
-}
-.sticky .inner{
-  max-width:1180px;margin:0 auto;background:#16181d;border:1px solid var(--ring);
-  padding:14px 16px;border-radius:16px;display:flex;gap:12px;align-items:center;justify-content:space-between
-}
-.sticky strong{font-size:16px}
-.sticky .btn{padding:10px 14px;font-size:15px;border-radius:12px}
-
-/* ===== Footer ===== */
-footer{border-top:1px solid var(--ring);padding:28px 0;text-align:center;color:var(--muted);font-size:15px}
+  /* simple fade in */
+  .fade{opacity:0;transform:translateY(6px);animation:fade .6s ease-out forwards}
+  .fade.d2{animation-delay:.07s}.fade.d3{animation-delay:.14s}.fade.d4{animation-delay:.21s}
+  @keyframes fade{to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-
-<!-- Ribbon rekomendasi -->
-<div class="ribbon">
-  Rekomendasi: <a href="#azbry">Buka Azbry Sistem</a>
-</div>
-
-<header id="hdr">
-  <div class="wrap nav">
-    <a class="brand" href="#azbry" aria-label="Azbry Sistem">
-      <div class="logo" aria-hidden="true"></div>
-      <div>
+  <div class="wrap">
+    <!-- HEADER -->
+    <header class="fade">
+      <img class="logo" src="https://files.catbox.moe/xv0imr.png?v=1" alt="Azbry-MD logo">
+      <div class="brand">
         <h1>FebryWesker</h1>
         <small>Azbry-MD • WhatsApp Bot</small>
       </div>
-    </a>
-    <nav class="tabs" aria-label="Navigasi">
-      <a class="tab" id="tab-azbry"   href="#azbry">Azbry Sistem</a>
-      <a class="tab" id="tab-github"  href="#github">GitHub</a>
-      <a class="tab" id="tab-home"    href="#home">Beranda</a>
-      <a class="tab" id="tab-wa"      href="#whatsapp">WhatsApp</a>
-    </nav>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero fade d2">
+      <span class="tag">Monochrome • Simple</span>
+      <h2>Smart Automation & Elegant System</h2>
+      <p>Tujuan utama: orang yang masuk ke sini langsung menuju <b>Azbry Sistem</b>. Tautan WhatsApp tetap ada tapi bukan fokus utama.</p>
+
+      <div class="grid">
+        <div class="card span-7">
+          <h3>Prioritas Utama</h3>
+          <p class="muted">Dokumentasi & pusat layanan Azbry.</p>
+          <a class="btn" href="#azbry"><span class="icon">🧠</span> Azbry Sistem</a>
+          <a class="btn ghost" href="#github"><span class="icon">🌐</span> GitHub</a>
+        </div>
+
+        <div class="card span-5">
+          <h3>Kontak Cepat</h3>
+          <p class="muted">Perlu bantuan cepat via WhatsApp? Buka di sini.</p>
+          <a class="btn ghost" href="#whatsapp"><span class="icon">💬</span> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AZBRY SISTEM -->
+    <section id="azbry" class="fade d2">
+      <h3 class="section-title">Azbry Sistem</h3>
+      <div class="card">
+        <p class="muted">Dokumentasi fitur, changelog, dan integrasi ekosistem Azbry. Ini adalah halaman yang paling disarankan untuk dikunjungi terlebih dahulu.</p>
+        <div class="stack">
+          <a class="btn" href="https://azbry-system.web.app" target="_blank" rel="noopener"><span class="icon">🚀</span> Buka Azbry Sistem</a>
+          <a class="btn ghost" href="#github"><span class="icon">📦</span> Lihat Kode di GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GITHUB -->
+    <section id="github" class="fade d3">
+      <h3 class="section-title">GitHub</h3>
+      <div class="card">
+        <p class="muted">Repositori publik terkait Azbry-MD, eksperimen AI, dan utilitas automasi.</p>
+        <a class="btn" href="https://github.com/FebryWesker" target="_blank" rel="noopener"><span class="icon">🌐</span> Kunjungi GitHub</a>
+      </div>
+    </section>
+
+    <!-- WHATSAPP -->
+    <section id="whatsapp" class="fade d4">
+      <h3 class="section-title">WhatsApp</h3>
+      <div class="card">
+        <p class="muted">Pilih salah satu tombol di bawah untuk membuka chat. Nomor tidak ditampilkan di halaman ini demi privasi.</p>
+        <div class="stack">
+          <a class="btn" href="https://wa.me/6281510040802" target="_blank" rel="noopener"><span class="icon">👤</span> Nomor Owner</a>
+          <a class="btn ghost" href="https://wa.me/6285189988271" target="_blank" rel="noopener"><span class="icon">🤖</span> Nomor Bot</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="fade d4">
+      <span>© <span id="y"></span> FebryWesker</span>
+      <span class="mono">Made with ❤ • Monochrome + Simple</span>
+    </footer>
   </div>
-</header>
-
-<main class="wrap">
-  <!-- AZBRY SISTEM (default) -->
-  <section id="azbry" class="section active" aria-labelledby="az-title">
-    <div class="grid">
-      <div class="stack">
-        <span class="kicker">🧠 Azbry Sistem</span>
-        <h2 id="az-title" class="title">Platform bot monokrom — fokus ke fitur, bukan gimmick.</h2>
-        <p class="lead">Semua fitur inti dirangkum rapi + dokumentasi singkat untuk admin & user. CTA besar diarahkan ke Azbry Sistem & GitHub.</p>
-
-        <div class="card stack">
-          <div>
-            <h3>Fitur Utama</h3>
-            <ul class="clean">
-              <li><b>Reminder Sholat & Makan</b> — jadwal manual per zona, test trigger, log “last run”.</li>
-              <li><b>AutoBackup & Report</b> — backup harian + ringkasan kesehatan bot.</li>
-              <li><b>Mention Rescue</b> — DM kalau di-mention saat AFK ≥ 30m.</li>
-              <li><b>Level & XP</b> — akumulasi on-message.</li>
-              <li><b>Rate-limit</b> — batasi command per user untuk jaga resource.</li>
-            </ul>
-          </div>
-          <div class="actions">
-            <a class="btn primary" href="#github">Lihat Kode di GitHub</a>
-            <a class="btn ghost"   href="#whatsapp">Butuh bantuan cepat?</a>
-          </div>
-        </div>
-      </div>
-
-      <aside class="heroCard stack" aria-label="Ringkasan Sistem">
-        <div>
-          <h3>Status Ringkas</h3>
-          <ul class="clean">
-            <li>Mode: Stable • Monochrome UI</li>
-            <li>Auto-backup & Report aktif</li>
-            <li>Reminder: Sholat & Makan</li>
-            <li>XP/Level: On-message</li>
-            <li>Rate-limit: Per user/command</li>
-          </ul>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="#azbry">Baca Dokumentasi Singkat</a>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- GITHUB -->
-  <section id="github" class="section" aria-labelledby="gh-title">
-    <div class="card stack">
-      <div>
-        <h3 id="gh-title">Repositori Azbry-MD</h3>
-        <p class="meta">Kode sumber, rilis, dan issue tracking. Silakan fork/PR; kredit tetap pada pembuat asli.</p>
-      </div>
-      <div class="actions">
-        <a class="btn primary" href="https://github.com/FebryWesker/Azbry-MD" target="_blank" rel="noopener">Buka GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOME (sekunder, ditata lebih lega) -->
-  <section id="home" class="section" aria-labelledby="home-title">
-    <div class="grid">
-      <div class="stack">
-        <span class="kicker">⚙️ Azbry-MD • Stable</span>
-        <h2 id="home-title" class="title">WhatsApp multi-device bot — cepat, ringan, modular.</h2>
-        <p class="lead">Dikelola oleh <b>FebryWesker</b>. Desain monokrom yang rapi supaya konten tetap utama.</p>
-        <div class="actions">
-          <a class="btn primary" href="#azbry">Buka Azbry Sistem</a>
-          <a class="btn" href="#github">Lihat GitHub</a>
-        </div>
-      </div>
-      <div class="heroCard">
-        <h3>Kenapa Monokrom?</h3>
-        <p class="meta">Kontras tinggi, aksesibel, dan konsisten dengan brand Azbry. Minim gangguan visual, maksimal fokus.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHATSAPP (tanpa menampilkan nomor) -->
-  <section id="whatsapp" class="section" aria-labelledby="wa-title">
-    <div class="card stack">
-      <div>
-        <h3 id="wa-title">Kontak WhatsApp</h3>
-        <p class="meta">Untuk instalasi cepat, pertanyaan singkat, atau laporan bug. Klik tombol sesuai kebutuhan—nomor tidak ditampilkan di halaman.</p>
-      </div>
-      <div class="actions">
-        <!-- tombol tanpa menampilkan angka -->
-        <a class="btn" href="https://wa.me/6281510040802" target="_blank" rel="noopener">Nomor Owner</a>
-        <a class="btn ghost" href="https://wa.me/6285189988271" target="_blank" rel="noopener">Nomor Bot</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- Sticky CTA ke Azbry -->
-<div class="sticky" role="region" aria-label="Arahkan ke Azbry Sistem">
-  <div class="inner">
-    <strong>Baru di sini? Mulai dari <u>Azbry Sistem</u> biar paham fiturnya.</strong>
-    <div class="actions">
-      <a class="btn primary" href="#azbry">Buka Azbry Sistem</a>
-    </div>
-  </div>
-</div>
-
-<footer>© <span id="year"></span> FebryWesker. All rights reserved.</footer>
 
 <script>
-const sections=["azbry","github","home","whatsapp"];
-const $=id=>document.getElementById(id);
-function setActive(id){
-  sections.forEach(s=>{
-    const sec=document.getElementById(s); if(!sec) return;
-    sec.classList.toggle("active", s===id);
-    const tab=document.getElementById("tab-"+s.replace("#",""));
-    if(tab) tab.classList.toggle("active", s===id);
+  // tahun otomatis
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // scroll halus kalau klik #hash
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      if(id.length>1){
+        e.preventDefault();
+        document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+        history.pushState(null,'',id);
+      }
+    })
   });
-  window.scrollTo({top:0,behavior:"instant"});
-}
-function resolve(){
-  const hash=(location.hash||"#azbry").slice(1);
-  setActive(sections.includes(hash)?hash:"azbry");
-}
-window.addEventListener("hashchange",resolve);
-resolve();
-document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
