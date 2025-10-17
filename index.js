@@ -1,149 +1,253 @@
-const cluster = require('cluster');
-const { spawn } = require('child_process');
-const path = require('path');
-const fs = require('fs');
-const os = require('os');
-const express = require('express');
-const app = express();
-
-// Express.js 
-const ports = [4000, 3000, 5000, 8000, 8080, 4444];
-let availablePortIndex = 0;
-
-function checkPort(port) {
-  return new Promise((resolve, reject) => {
-    const server = app.listen(port, () => {
-      server.close();
-      resolve(true);
-    });
-    server.on('error', reject);
-  });
-}
-
-async function startServer() {
-  const port = ports[availablePortIndex];
-  const isPortAvailable = await checkPort(port);
-
-  if (isPortAvailable) {
-    console.log('\x1b[33m%s\x1b[0m', `🌐 Port ${port} is open`);
-    app.get('/', (req, res) => {
-      res.setHeader('Content-Type', 'application/json');
-      const data = {
-        status: 'true',
-        message: 'Bot Successfully Activated!',
-        author: 'BOTCAHX'
-      };
-      const result = {
-        response: data
-      };
-      res.send(JSON.stringify(result, null, 2));
-    });
-  } else {
-    console.log(`Port ${port} is already in use. Trying another port...`);
-    availablePortIndex++;
-
-    if (availablePortIndex >= ports.length) {
-      console.log('No more available ports. Exiting...');
-      process.exit(1);
-    } else {
-      ports[availablePortIndex] = parseInt(port) + 1;
-      startServer();
-    }
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FebryWesker — Azbry-MD</title>
+<meta name="description" content="Portofolio ringkas FebryWesker (Azbry-MD). Smart Automation & Elegant System." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d10;
+    --panel:#111418;
+    --muted:#98a2b3;
+    --text:#e6e8ec;
+    --accent:#b8ff9a;
+    --accent-2:#8ee887;
+    --ring:rgba(184,255,154,.18);
+    --shadow:0 4px 16px rgba(0,0,0,.35);
+    --radius:16px;
   }
-}
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+    background:radial-gradient(1200px 800px at 20% -10%, rgba(184,255,154,.06), transparent 40%),
+               radial-gradient(1000px 700px at 120% 30%, rgba(184,255,154,.04), transparent 35%),
+               var(--bg);
+    color:var(--text);
+  }
 
-startServer();
+  .wrap{max-width:980px;margin:0 auto;padding:28px 18px 56px}
+  header{display:flex;align-items:center;gap:16px;margin:8px 0 22px}
+  .brand h1{font-weight:800;line-height:1.05;font-size:clamp(28px,4.6vw,42px);margin:0}
+  .brand small{display:block;margin-top:6px;color:var(--muted);font-weight:600;letter-spacing:.2px}
 
-let isRunning = false;
+  .hero{
+    margin:26px 0 28px;padding:26px;border-radius:var(--radius);
+    background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
+    border:1px solid rgba(255,255,255,.04); box-shadow:var(--shadow);
+  }
+  .tag{display:inline-flex;gap:8px;align-items:center;background:rgba(184,255,154,.09);
+       color:#dfffe0;border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.35px;text-transform:uppercase}
+  .hero h2{margin:16px 0 12px;font-size:clamp(22px,3.8vw,30px)}
+  .hero p{margin:0;color:var(--muted)}
 
-function start(file) {
-  if (isRunning) return;
-  isRunning = true;
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:18px}
+  .span-7{grid-column:span 7}
+  .span-5{grid-column:span 5}
+  @media(max-width:800px){.span-7,.span-5{grid-column:span 12}}
 
-  const args = [path.join(__dirname, file), ...process.argv.slice(2)];
-  const p = spawn(process.argv[0], args, {
-    stdio: ["inherit", "inherit", "inherit", "ipc"],
+  .card{
+    background:var(--panel); border:1px solid rgba(255,255,255,.05);
+    border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+  }
+  .card h3{margin:2px 0 10px;font-size:18px}
+  .card p{margin:0 0 14px;color:var(--muted)}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:12px 16px;border-radius:12px;font-weight:700;text-decoration:none;color:#0b0d10;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2));
+    box-shadow:0 6px 22px rgba(184,255,154,.25), inset 0 0 0 1px rgba(0,0,0,.12);
+    border:0; cursor:pointer;
+  }
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.09)}
+  .btn + .btn{margin-left:10px}
+  .icon{font-size:18px}
+
+  section{margin-top:28px}
+  .section-title{font-size:20px;margin:0 0 12px}
+  .muted{color:var(--muted)}
+  .stack{display:flex;flex-wrap:wrap;gap:10px}
+
+  footer{margin-top:36px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .mono{opacity:.9}
+
+  .fade{opacity:0;transform:translateY(6px);animation:fade .6s ease-out forwards}
+  .fade.d2{animation-delay:.07s}.fade.d3{animation-delay:.14s}.fade.d4{animation-delay:.21s}
+  @keyframes fade{to{opacity:1;transform:none}}
+
+  /* ===================== *
+   *  ANIMASI TAMBAHAN    *
+   * ===================== */
+
+  /* Word-by-word: span.word dibuat via JS */
+  .w-animate .word{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(10px);
+    filter:blur(2px);
+  }
+  .w-animate.in .word{
+    animation:wordIn .55s cubic-bezier(.2,.8,.2,1) forwards;
+    animation-delay:calc(var(--i) * 60ms);
+  }
+  @keyframes wordIn{
+    to{opacity:1;transform:none;filter:blur(0)}
+  }
+
+  /* Button stagger fade-in (ditandai via JS .btn-anim) */
+  .btn-anim{
+    opacity:0; transform:translateY(8px);
+  }
+  .btn-anim.in{
+    transition:opacity .5s ease, transform .5s ease;
+    transition-delay:var(--delay,0ms);
+    opacity:1; transform:none;
+  }
+
+  /* Honor reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .fade, .w-animate .word, .btn-anim{animation:none!important;transition:none!important;opacity:1!important;transform:none!important;filter:none!important}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="fade">
+      <div class="brand">
+        <h1>FebryWesker</h1>
+        <small>Azbry-MD • WhatsApp Bot</small>
+      </div>
+    </header>
+
+    <div class="hero fade d2">
+      <span class="tag">Monochrome • Simple</span>
+      <h2>Smart Automation & Elegant System</h2>
+      <p>Tujuan utama: orang yang masuk ke sini langsung menuju <b>Azbry Sistem</b>. Tautan WhatsApp tetap ada tapi bukan fokus utama.</p>
+
+      <div class="grid">
+        <div class="card span-7">
+          <h3>Prioritas Utama</h3>
+          <p class="muted">Dokumentasi & pusat layanan Azbry.</p>
+          <a class="btn" href="#azbry"><span class="icon">🧠</span> Azbry Sistem</a>
+          <a class="btn ghost" href="#github"><span class="icon">🌐</span> GitHub</a>
+        </div>
+
+        <div class="card span-5">
+          <h3>Kontak Cepat</h3>
+          <p class="muted">Perlu bantuan cepat via WhatsApp? Buka di sini.</p>
+          <a class="btn ghost" href="#whatsapp"><span class="icon">💬</span> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="azbry" class="fade d2">
+      <h3 class="section-title">Azbry Sistem</h3>
+      <div class="card">
+        <p class="muted">Dokumentasi fitur, changelog, dan integrasi ekosistem Azbry. Ini adalah halaman yang paling disarankan untuk dikunjungi terlebih dahulu.</p>
+        <div class="stack">
+          <a class="btn" href="https://azbry-system.web.app" target="_blank" rel="noopener"><span class="icon">🚀</span> Buka Azbry Sistem</a>
+          <a class="btn ghost" href="#github"><span class="icon">📦</span> Lihat Kode di GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="github" class="fade d3">
+      <h3 class="section-title">GitHub</h3>
+      <div class="card">
+        <p class="muted">Repositori publik terkait Azbry-MD, eksperimen AI, dan utilitas automasi.</p>
+        <a class="btn" href="https://github.com/FebryWesker" target="_blank" rel="noopener"><span class="icon">🌐</span> Kunjungi GitHub</a>
+      </div>
+    </section>
+
+    <section id="whatsapp" class="fade d4">
+      <h3 class="section-title">WhatsApp</h3>
+      <div class="card">
+        <p class="muted">Pilih salah satu tombol di bawah untuk membuka chat. Nomor tidak ditampilkan di halaman ini demi privasi.</p>
+        <div class="stack">
+          <a class="btn" href="https://wa.me/6281510040802" target="_blank" rel="noopener"><span class="icon">👤</span> Nomor Owner</a>
+          <a class="btn ghost" href="https://wa.me/6285189988271" target="_blank" rel="noopener"><span class="icon">🤖</span> Nomor Bot</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="fade d4">
+      <span>© <span id="y"></span> FebryWesker</span>
+      <span class="mono">Made with ❤ • Monochrome + Simple</span>
+    </footer>
+  </div>
+
+<script>
+  // tahun otomatis
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // scroll halus untuk anchor
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      if(id.length>1){
+        e.preventDefault();
+        document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+        history.pushState(null,'',id);
+      }
+    })
   });
 
-  p.on("message", (data) => {
-    console.log('\x1b[36m%s\x1b[0m', `🟢 RECEIVED ${data}`);
-    switch (data) {
-      case "reset":
-        p.kill();
-        isRunning = false;
-        start.apply(this, arguments);
-        break;
-      case "uptime":
-        p.send(process.uptime());
-        break;
-    }
-  });
+  /* ===================== *
+   *  ANIMASI TAMBAHAN    *
+   * ===================== */
 
-  p.on("exit", (code) => {
-    isRunning = false;
-    console.error('\x1b[31m%s\x1b[0m', `Exited with code: ${code}`);
-    start('main.js');
+  // 1) Word-by-word: bungkus setiap kata jadi <span class="word" style="--i:n">
+  function splitToWords(el){
+    if(!el || el.dataset.wdone) return;
+    const text = el.textContent.trim().replace(/\s+/g,' ');
+    const words = text.split(' ');
+    el.innerHTML = words.map((w,i)=>`<span class="word" style="--i:${i}">${w}</span>`).join(' ');
+    el.parentElement.classList.add('w-animate'); // pakai di container biar rapih
+    el.dataset.wdone = '1';
+  }
 
-    if (code === 0) return;
+  // target: title brand, hero h2, semua .section-title
+  const targets = [
+    document.querySelector('.brand h1'),
+    document.querySelector('.hero h2'),
+    ...document.querySelectorAll('.section-title')
+  ].filter(Boolean);
 
-    fs.watchFile(args[0], () => {
-      fs.unwatchFile(args[0]);
-	  console.error('\x1b[31m%s\x1b[0m', `File ${args[0]} has been modified. Script will restart...`);
-      start("main.js");
-    });
-  });
+  targets.forEach(splitToWords);
 
-  p.on("error", (err) => {
-    console.error('\x1b[31m%s\x1b[0m', `Error: ${err}`);
-    p.kill();
-    isRunning = false;
-    console.error('\x1b[31m%s\x1b[0m', `Error occurred. Script will restart...`);
-    start("main.js");
-  });
+  // Observer: saat elemen terlihat, tambahkan .in untuk trigger animasi kata & tombol
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const section = entry.target;
 
-  const pluginsFolder = path.join(__dirname, "plugins");
+        // aktifkan word-by-word
+        const wContainer = section.querySelector('.w-animate');
+        if(wContainer) wContainer.classList.add('in');
 
-  fs.readdir(pluginsFolder, (err, files) => {
-    if (err) {
-      console.error('\x1b[31m%s\x1b[0m', `Error reading plugins folder: ${err}`);
-      return;
-    }
-    console.log('\x1b[33m%s\x1b[0m', `🟡 Found ${files.length} plugins in folder ${pluginsFolder}`);
-    try {
-      require.resolve('@adiwajshing/baileys');
-      console.log('\x1b[33m%s\x1b[0m', `🟡 Baileys library version ${require('@adiwajshing/baileys/package.json').version} is installed`);
-    } catch (e) {
-      console.error('\x1b[31m%s\x1b[0m', `❌ Baileys library is not installed`);
-    }
-  });
+        // aktifkan tombol dengan stagger
+        const btns = section.querySelectorAll('.btn');
+        btns.forEach((b,idx)=>{
+          b.classList.add('btn-anim');
+          b.style.setProperty('--delay', (idx*90)+'ms');
+          requestAnimationFrame(()=> b.classList.add('in'));
+        });
 
-  console.log(`🖥️ \x1b[33m${os.type()}\x1b[0m, \x1b[33m${os.release()}\x1b[0m - \x1b[33m${os.arch()}\x1b[0m`);
-  const ramInGB = os.totalmem() / (1024 * 1024 * 1024);
-  console.log(`💾 \x1b[33mTotal RAM: ${ramInGB.toFixed(2)} GB\x1b[0m`);
-  const freeRamInGB = os.freemem() / (1024 * 1024 * 1024);
-  console.log(`💽 \x1b[33mFree RAM: ${freeRamInGB.toFixed(2)} GB\x1b[0m`);
-  console.log('\x1b[33m%s\x1b[0m', `📃 Script by BOTCAHX`);
-  console.log('\x1b[33m%s\x1b[0m', `🔗 Github: https://github.com/BOTCAHX/RTXZY-MD`);	
+        io.unobserve(section);
+      }
+    })
+  }, { rootMargin: '0px 0px -10% 0px', threshold: .15 });
 
-  setInterval(() => {}, 1000);
-}
-
-start("main.js");
-
-const tmpDir = './tmp';
-  if (!fs.existsSync(tmpDir)) {
-    fs.mkdirSync(tmpDir);
-    console.log('\x1b[33m%s\x1b[0m', `📁 Created directory ${tmpDir}`);
-}
-
-process.on('unhandledRejection', (reason) => {
-  console.error('\x1b[31m%s\x1b[0m', `Unhandled promise rejection: ${reason}`);
-  console.error('\x1b[31m%s\x1b[0m', 'Unhandled promise rejection. Script will restart...');
-  start('main.js');
-});
-
-process.on('exit', (code) => {
-  console.error(`Exited with code: ${code}`);
-  console.error('Script will restart...');
-  start('main.js');
-});
+  // Observe hero + setiap section
+  const observables = [
+    document.querySelector('.hero'),
+    ...document.querySelectorAll('section')
+  ].filter(Boolean);
+  observables.forEach(sec=>io.observe(sec));
+</script>
+</body>
+</html>
