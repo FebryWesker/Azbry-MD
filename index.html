@@ -2,108 +2,99 @@
 <html lang="id">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>FebryWesker — Azbry-MD</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Azbry-MD • FebryWesker</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#0f0f10; --surface:#111214; --card:#141518;
-  --ring:#26272b; --shadow:0 2px 24px rgba(0,0,0,.35);
-  --txt:#F3F4F6; --muted:#B3B3BB; --ink:#F9FAFB; --ghost:#1b1c20;
-  --accent:#E5E7EB;
+  --bg:#0f0f10; --surface:#111214; --card:#141518; --ring:#26272b;
+  --txt:#F3F4F6; --muted:#B3B3BB; --ink:#F9FAFB; --ghost:#1b1c20; --accent:#E5E7EB;
+  --shadow:0 2px 24px rgba(0,0,0,.35);
 }
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;background:var(--bg);color:var(--txt);
-  /* ➜ Naikin base font */
-  font:18px/1.7 Inter,system-ui,Segoe UI,Roboto,Arial;
-  overflow-x:hidden;
-}
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--txt);font:18px/1.7 Inter,system-ui,Segoe UI,Roboto,Arial;overflow-x:hidden}
 
-/* ====== Header / Nav ====== */
-header{
-  position:sticky; top:0; z-index:30;
-  background:var(--surface); border-bottom:1px solid var(--ring);
-  transition:box-shadow .3s ease, background .3s ease;
+/* ===== Ribbon ===== */
+.ribbon{
+  background:#18191c; border-bottom:1px solid var(--ring); text-align:center; padding:10px 12px;
+  position:sticky; top:0; z-index:50;
 }
-header.scrolled{ box-shadow:0 4px 18px rgba(0,0,0,.4) }
-.wrap{max-width:1120px;margin:0 auto;padding:26px 22px}
+.ribbon a{color:#000;background:var(--accent);padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:800}
+
+/* ===== Header ===== */
+header{background:var(--surface);border-bottom:1px solid var(--ring);position:sticky;top:48px;z-index:40}
+.wrap{max-width:1120px;margin:0 auto;padding:24px 22px}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:18px}
 .brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--txt)}
-.logo{
-  width:52px;height:52px;border-radius:12px;border:1px solid var(--ring);
-  background:url('https://files.catbox.moe/xv0imr.png') center/cover no-repeat;
-  animation:pulse 3s infinite ease-in-out;
-}
-.brand h1{margin:0;font-size:22px;font-weight:800;letter-spacing:.2px}
+.logo{width:52px;height:52px;border-radius:12px;border:1px solid var(--ring);
+  background:url('https://files.catbox.moe/xv0imr.png') center/cover no-repeat;animation:pulse 3s infinite ease-in-out}
+.brand h1{margin:0;font-size:22px;font-weight:800}
 .brand small{display:block;margin-top:2px;color:var(--muted);font-weight:600;font-size:14px}
 
 .tabs{display:flex;gap:8px;flex-wrap:wrap}
-.tab{
-  appearance:none;border:1px solid transparent;background:transparent;color:var(--txt);
-  padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;font-size:16px;
-  transition:all .25s ease;
-}
+.tab{appearance:none;border:1px solid transparent;background:transparent;color:var(--txt);
+  padding:12px 16px;border-radius:12px;text-decoration:none;font-weight:700;font-size:16px;transition:.25s}
 .tab:hover{background:#1a1a1c;border-color:var(--ring);transform:translateY(-1px)}
 .tab.active{background:#1a1a1c;border-color:var(--ring)}
 
-/* ====== Sections / Animations ====== */
-main{padding:24px 0 72px}
+/* ===== Layout / Cards ===== */
+main{padding:24px 0 114px}
 .section{display:none;opacity:0;transform:translateY(14px);animation:fadeUp .45s ease forwards}
 .section.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.06);opacity:.9}}
 
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
-@media (max-width:900px){.hero{grid-template-columns:1fr}}
-
-.title{
-  margin:0 0 10px;
-  /* ➜ Naikin ukuran judul */
-  font-size:clamp(34px, 6.2vw, 52px);
-  font-weight:800;
-}
+.title{margin:0 0 10px;font-size:clamp(34px,6.2vw,52px);font-weight:800}
 .lead{margin:0 0 24px;color:var(--ink);font-size:19px}
-.badge{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--ghost); color:var(--ink); border:1px solid #2a2b2f;
-  padding:8px 14px;border-radius:999px;font-weight:700;font-size:14px;
-  animation:fadeIn .6s ease both;
-}
-@keyframes fadeIn{from{opacity:0} to{opacity:1}}
+
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
 
 .card,.heroCard{
-  background:var(--card); border:1px solid var(--ring); border-radius:18px;
-  padding:24px; box-shadow:var(--shadow);
-  transition:transform .25s ease, box-shadow .25s ease;
+  background:var(--card);border:1px solid var(--ring);border-radius:18px;padding:24px;box-shadow:var(--shadow);
+  transition:transform .25s ease, box-shadow .25s ease
 }
 .card:hover,.heroCard:hover{transform:translateY(-4px);box-shadow:0 6px 24px rgba(0,0,0,.5)}
 .card h3{margin:0 0 10px;font-size:22px}
 .meta{color:var(--muted);font-size:16px;margin:0}
+.kicker{display:inline-flex;gap:10px;background:var(--ghost);color:var(--ink);border:1px solid #2a2b2f;
+  padding:8px 14px;border-radius:999px;font-weight:800;font-size:14px}
 
+/* ===== Buttons ===== */
 .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:14px 18px;border-radius:14px;border:1px solid var(--ring);
-  background:#1b1c20;color:var(--txt);text-decoration:none;font-weight:800;font-size:16px;
-  transition:all .25s ease;
-}
+  background:#1b1c20;color:var(--txt);text-decoration:none;font-weight:800;font-size:16px;transition:.25s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 0 12px rgba(255,255,255,.1)}
 .btn.primary{background:var(--accent);color:#000;border-color:transparent}
-.btn.primary:hover{background:#d1d5db;box-shadow:0 0 14px #9ca3af55}
+.btn.primary:hover{background:#d1d5db}
 .btn.ghost{background:var(--ghost);color:var(--ink);border-color:#2a2b2f}
 
-ul.clean{padding-left:20px;margin:6px 0}
-ul.clean li{margin:8px 0}
+/* ===== Sticky CTA (bottom) ===== */
+.sticky{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;background:linear-gradient(180deg,rgba(15,15,16,0),#0f0f10 28%);
+  padding:18px 14px 16px;border-top:1px solid var(--ring)
+}
+.sticky .inner{max-width:1120px;margin:0 auto;background:#16171a;border:1px solid var(--ring);
+  padding:14px 16px;border-radius:16px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.sticky strong{font-size:16px}
+.sticky .btn{padding:10px 14px;font-size:15px;border-radius:12px}
 
+/* ===== Misc ===== */
+ul.clean{padding-left:20px;margin:6px 0} ul.clean li{margin:8px 0}
 footer{border-top:1px solid var(--ring);padding:26px 0;text-align:center;color:var(--muted);font-size:15px}
 </style>
 </head>
 <body>
+
+<!-- Ribbon rekomendasi -->
+<div class="ribbon">
+  Rekomendasi: <a href="#azbry">Buka Azbry Sistem</a>
+</div>
+
 <header id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="#home" aria-label="Kembali ke beranda">
+    <a class="brand" href="#azbry" aria-label="Azbry Sistem">
       <div class="logo" aria-hidden="true"></div>
       <div>
         <h1>FebryWesker</h1>
@@ -111,106 +102,140 @@ footer{border-top:1px solid var(--ring);padding:26px 0;text-align:center;color:v
       </div>
     </a>
     <nav class="tabs" aria-label="Navigasi">
-      <a class="tab" id="tab-home" href="#home">Beranda</a>
-      <a class="tab" id="tab-whatsapp" href="#whatsapp">WhatsApp</a>
-      <a class="tab" id="tab-github" href="#github">GitHub</a>
-      <a class="tab" id="tab-azbry" href="#azbry">Azbry Sistem</a>
+      <a class="tab" id="tab-azbry"   href="#azbry">Azbry Sistem</a>
+      <a class="tab" id="tab-github"  href="#github">GitHub</a>
+      <a class="tab" id="tab-home"    href="#home">Beranda</a>
+      <a class="tab" id="tab-wa"      href="#whatsapp">WhatsApp</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
-  <!-- Home -->
-  <section id="home" class="section active" aria-labelledby="home-title">
-    <div class="hero">
+  <!-- AZBRY SISTEM (default) -->
+  <section id="azbry" class="section active" aria-labelledby="az-title">
+    <div class="grid">
       <div>
-        <span class="badge">⚙️ Azbry-MD • Stable</span>
-        <h2 id="home-title" class="title">WhatsApp multi-device bot — cepat, ringan, dan modular.</h2>
-        <p class="lead">Dibangun & dikelola oleh <strong>FebryWesker</strong>. Desain monokrom biar fokus ke konten, bukan warna.</p>
-        <div class="actions">
-          <a class="btn primary" href="#whatsapp">Hubungi via WhatsApp</a>
-          <a class="btn" href="#github">Lihat GitHub</a>
+        <span class="kicker">🧠 Azbry Sistem</span>
+        <h2 id="az-title" class="title">Platform bot monokrom: fokus pada fitur, bukan gimmick.</h2>
+        <p class="lead">Semua fitur inti dirangkum jelas dan bisa kamu uji. Dokumentasi singkat untuk admin & user.</p>
+
+        <div class="card">
+          <h3>Fitur Utama</h3>
+          <ul class="clean">
+            <li><b>Reminder Sholat & Makan</b> — jadwal manual per zona, trigger test, log “last run”.</li>
+            <li><b>AutoBackup & Report</b> — backup harian + ringkasan kesehatan bot.</li>
+            <li><b>Mention Rescue</b> — cegah ghost ping, mode AFK ≥ 30m.</li>
+            <li><b>Level & XP</b> — akumulasi on-message, anti-spam sederhana.</li>
+            <li><b>Rate-limit</b> — batas command per user untuk jaga resource.</li>
+          </ul>
+
+          <h3>Perintah Cepat</h3>
+          <ul class="clean">
+            <li><code>.sholat on|off [here|all]</code>, <code>.sholat add|del here</code>, <code>.sholat list</code>, <code>.sholat test &lt;subuh|dzuhur|ashar|maghrib|isya&gt;</code></li>
+            <li><code>.autostat</code> — status fitur otomatis dalam 1 layar.</li>
+          </ul>
+
+          <div class="actions">
+            <a class="btn primary" href="#github">Lihat Kode di GitHub</a>
+            <a class="btn ghost"   href="#whatsapp">Butuh bantuan cepat?</a>
+          </div>
         </div>
       </div>
-      <div class="heroCard">
+
+      <aside class="heroCard" aria-label="Ringkasan Sistem">
         <h3>Status Ringkas</h3>
         <ul class="clean">
-          <li>Auto backup & laporan</li>
-          <li>Reminder sholat & makan</li>
-          <li>Mention rescue</li>
-          <li>Rate-limit & API quota</li>
+          <li>Mode: Stable • Monochrome UI</li>
+          <li>Auto-backup: Aktif • Report: Aktif</li>
+          <li>Reminder: Sholat & Makan</li>
+          <li>XP/Level: On-message</li>
+          <li>Rate-limit: Per user/command</li>
         </ul>
         <div class="actions">
-          <a class="btn ghost" href="#azbry">Detail Fitur</a>
+          <a class="btn primary" href="#azbry">Baca Dokumentasi Singkat</a>
         </div>
-      </div>
+      </aside>
     </div>
   </section>
 
-  <!-- WhatsApp -->
-  <section id="whatsapp" class="section" aria-labelledby="wa-title">
-    <div class="card">
-      <h3 id="wa-title">Kontak WhatsApp</h3>
-      <p class="meta">Pilih jalur kontak untuk instalasi, bantuan, atau laporan bug.</p>
-      <div class="actions">
-        <a class="btn primary" href="https://wa.me/6281510040802" target="_blank" rel="noopener">Owner • 6281510040802</a>
-        <a class="btn" href="https://wa.me/6285189988271" target="_blank" rel="noopener">Bot • 6285189988271</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- GitHub -->
+  <!-- GITHUB -->
   <section id="github" class="section" aria-labelledby="gh-title">
     <div class="card">
       <h3 id="gh-title">Repositori Azbry-MD</h3>
-      <p class="meta">Kode sumber publik, rilis, dan isu pelaporan untuk ekosistem Azbry.</p>
+      <p class="meta">Kode sumber, rilis, dan isu pelaporan. Silakan fork/PR; kredit tetap mengarah ke pembuat asli.</p>
       <div class="actions">
         <a class="btn primary" href="https://github.com/FebryWesker/Azbry-MD" target="_blank" rel="noopener">Buka GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- Azbry Sistem -->
-  <section id="azbry" class="section" aria-labelledby="az-title">
+  <!-- HOME (sekunder) -->
+  <section id="home" class="section" aria-labelledby="home-title">
+    <div class="grid">
+      <div>
+        <span class="kicker">⚙️ Azbry-MD • Stable</span>
+        <h2 id="home-title" class="title">WhatsApp multi-device bot — cepat, ringan, modular.</h2>
+        <p class="lead">Dikelola oleh <b>FebryWesker</b>. Desain monokrom biar fokus ke konten.</p>
+        <div class="actions">
+          <a class="btn primary" href="#azbry">Buka Azbry Sistem</a>
+          <a class="btn" href="#github">Lihat GitHub</a>
+        </div>
+      </div>
+      <div class="heroCard">
+        <h3>Kenapa Monokrom?</h3>
+        <p class="meta">Kontras tinggi, aksesibilitas oke, dan konsisten sama brand Azbry.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHATSAPP (paling sekunder) -->
+  <section id="whatsapp" class="section" aria-labelledby="wa-title">
     <div class="card">
-      <h3 id="az-title">Azbry Sistem — Fitur Utama</h3>
-      <ul class="clean">
-        <li>Level & XP (on-message)</li>
-        <li>Pengingat Sholat (jadwal manual per zona)</li>
-        <li>AutoBackup & Report terjadwal</li>
-        <li>Mention Rescue (anti ghost ping)</li>
-        <li>Rate-limit per user/command</li>
-      </ul>
-      <p class="meta">Dokumentasi singkat untuk pengguna & admin grup.</p>
+      <h3 id="wa-title">Kontak WhatsApp</h3>
+      <p class="meta">Untuk instalasi cepat, pertanyaan singkat, atau laporan bug.</p>
+      <div class="actions">
+        <a class="btn" href="https://wa.me/6281510040802" target="_blank" rel="noopener">Owner • 6281510040802</a>
+        <a class="btn ghost" href="https://wa.me/6285189988271" target="_blank" rel="noopener">Bot • 6285189988271</a>
+      </div>
     </div>
   </section>
 </main>
 
+<!-- Sticky CTA ke Azbry -->
+<div class="sticky" role="region" aria-label="Arahkan ke Azbry Sistem">
+  <div class="inner">
+    <strong>Baru di sini? Mulai dari <u>Azbry Sistem</u> biar paham fiturnya.</strong>
+    <div class="actions">
+      <a class="btn primary" href="#azbry">Buka Azbry Sistem</a>
+    </div>
+  </div>
+</div>
+
 <footer>© <span id="year"></span> FebryWesker. All rights reserved.</footer>
 
 <script>
-const sections = ["home","whatsapp","github","azbry"];
-const $ = id => document.getElementById(id);
+const sections=["azbry","github","home","whatsapp"]; // prioritas
+const $=id=>document.getElementById(id);
 
 function setActive(id){
   sections.forEach(s=>{
-    const sec = $(s); if(!sec) return;
+    const sec=document.getElementById(s); if(!sec) return;
     sec.classList.toggle("active", s===id);
-    const tab = $("tab-"+s); if(tab) tab.classList.toggle("active", s===id);
+    const tab=document.getElementById("tab-"+s.replace("#","")); 
+    if(tab) tab.classList.toggle("active", s===id);
   });
-  window.scrollTo({top:0, behavior:"instant"});
+  window.scrollTo({top:0,behavior:"instant"});
 }
+
+// default -> azbry
 function resolve(){
-  const hash = (location.hash || "#home").slice(1);
-  setActive(sections.includes(hash)? hash : "home");
+  const hash=(location.hash||"#azbry").slice(1);
+  setActive(sections.includes(hash)?hash:"azbry");
 }
-window.addEventListener("hashchange", resolve);
+window.addEventListener("hashchange",resolve);
 resolve();
 
-$("year").textContent = new Date().getFullYear();
-
-const hdr = document.getElementById("hdr");
-window.addEventListener("scroll", ()=> hdr.classList.toggle("scrolled", window.scrollY > 20));
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
