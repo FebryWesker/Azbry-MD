@@ -23,7 +23,10 @@
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
-    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+                 "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji",
+                 Arial, Helvetica, sans-serif;
     background:radial-gradient(1200px 800px at 20% -10%, rgba(184,255,154,.06), transparent 40%),
                radial-gradient(1000px 700px at 120% 30%, rgba(184,255,154,.04), transparent 35%),
                var(--bg);
@@ -40,23 +43,21 @@
     margin:26px 0 28px;padding:26px;border-radius:var(--radius);
     background:linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
     border:1px solid rgba(255,255,255,.04); box-shadow:var(--shadow);
+    text-align:center;
   }
   .tag{display:inline-flex;gap:8px;align-items:center;background:rgba(184,255,154,.09);
        color:#dfffe0;border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.35px;text-transform:uppercase}
-
   .hero h2{
-  margin:24px 0 14px;
-  font-size:clamp(26px,4.2vw,34px);
-  font-weight:700;
-  color:var(--text);
-  text-align:center;
-}
-.hero p{
-  margin:0 0 20px;
-  color:var(--muted);
-  text-align:center;
-  font-size:clamp(15px,2vw,17px);
-}
+    margin:24px 0 14px;
+    font-size:clamp(26px,4.2vw,34px);
+    font-weight:700;
+    color:var(--text);
+  }
+  .hero p{
+    margin:0 0 20px;
+    color:var(--muted);
+    font-size:clamp(15px,2vw,17px);
+  }
 
   .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:18px}
   .span-7{grid-column:span 7}
@@ -75,12 +76,13 @@
     background:linear-gradient(180deg,var(--accent),var(--accent-2));
     box-shadow:0 6px 22px rgba(184,255,154,.25), inset 0 0 0 1px rgba(0,0,0,.12);
     border:0; cursor:pointer;
-    transition:transform .25s ease, box-shadow .25s ease, opacity .45s ease;
+    opacity:0;animation:btnfade .8s ease forwards;
   }
   .btn.ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.09)}
-  .btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 8px 26px rgba(184,255,154,.3);}
   .btn + .btn{margin-left:10px}
-  .icon{font-size:18px}
+  .icon{font-size:18px;line-height:1;display:inline-block;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",inherit;}
+
+  @keyframes btnfade{to{opacity:1;transform:none}}
 
   section{margin-top:28px}
   .section-title{font-size:20px;margin:0 0 12px}
@@ -93,18 +95,10 @@
   .fade{opacity:0;transform:translateY(6px);animation:fade .6s ease-out forwards}
   .fade.d2{animation-delay:.07s}.fade.d3{animation-delay:.14s}.fade.d4{animation-delay:.21s}
   @keyframes fade{to{opacity:1;transform:none}}
-
-  body.js .hero h2, body.js .hero p{opacity:0}
-  body.js .word{display:inline-block;opacity:0;transform:translateY(12px)}
-  @keyframes rise{to{opacity:1;transform:none}}
-
-  body.js .btn{opacity:0;transform:translateY(10px)}
-  body.js .btn.reveal{opacity:1;transform:none}
 </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- HEADER -->
     <header class="fade">
       <div class="brand">
         <h1>FebryWesker</h1>
@@ -112,11 +106,10 @@
       </div>
     </header>
 
-    <!-- HERO -->
     <div class="hero fade d2">
-      <span class="tag">Monochrome • Simple</span>
+      <span class="tag">MONOCHROME • SIMPLE</span>
       <h2>Selamat datang di portofolio Azbry System</h2>
-<p>Terima kasih atas kunjungannya. Jelajahi proyek & dokumentasi kami di bawah ini.</p>
+      <p>Terima kasih atas kunjungannya. Jelajahi proyek & dokumentasi kami di bawah ini.</p>
 
       <div class="grid">
         <div class="card span-7">
@@ -134,23 +127,16 @@
       </div>
     </div>
 
-    <!-- AZBRY SISTEM -->
     <section id="azbry" class="fade d2">
       <h3 class="section-title">Azbry Sistem</h3>
       <div class="card">
-        <p class="muted">
-          Dokumentasi, repository, dan sistem utama Azbry-MD terpusat di GitHub. 
-          Klik tombol di bawah untuk melihat proyek inti secara langsung.
-        </p>
+        <p class="muted">Dokumentasi fitur dan repository utama Azbry-MD terpusat di GitHub. Klik tombol di bawah untuk melihat proyek inti.</p>
         <div class="stack">
-          <a class="btn" href="https://github.com/FebryWesker/Azbry-MD" target="_blank" rel="noopener noreferrer">
-            <span class="icon">🧠</span> Azbry Sistem
-          </a>
+          <a class="btn" href="https://github.com/FebryWesker/Azbry-MD" target="_blank" rel="noopener"><span class="icon">🚀</span> Azbry Sistem</a>
         </div>
       </div>
     </section>
 
-    <!-- GITHUB -->
     <section id="github" class="fade d3">
       <h3 class="section-title">GitHub</h3>
       <div class="card">
@@ -159,7 +145,6 @@
       </div>
     </section>
 
-    <!-- WHATSAPP -->
     <section id="whatsapp" class="fade d4">
       <h3 class="section-title">WhatsApp</h3>
       <div class="card">
@@ -178,7 +163,6 @@
   </div>
 
 <script>
-  document.body.classList.add('js');
   document.getElementById('y').textContent = new Date().getFullYear();
 
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -192,52 +176,15 @@
     })
   });
 
-  function animateWordsPreserve(node, baseDelay=70){
-    let index = 0;
-    function wrapTextNode(textNode){
-      const frag = document.createDocumentFragment();
-      const parts = textNode.textContent.split(/(\s+)/);
-      parts.forEach(part=>{
-        if(part.trim().length === 0){
-          frag.appendChild(document.createTextNode(part));
-        }else{
-          const span = document.createElement('span');
-          span.className = 'word';
-          span.textContent = part;
-          span.style.animation = `rise .6s ${index*baseDelay}ms forwards`;
-          index++;
-          frag.appendChild(span);
-        }
+  // fallback animasi
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.fade').forEach(el=>{
+        const s=getComputedStyle(el);
+        if(s.opacity==='0'){el.style.opacity=1;el.style.transform='none';}
       });
-      return frag;
-    }
-    (function walk(el){
-      const children = Array.from(el.childNodes);
-      children.forEach(ch=>{
-        if(ch.nodeType === Node.TEXT_NODE){
-          const frag = wrapTextNode(ch);
-          ch.replaceWith(frag);
-        }else if(ch.nodeType === Node.ELEMENT_NODE){
-          walk(ch);
-        }
-      });
-    })(node);
-  }
-
-  const title = document.getElementById('hero-title');
-  const desc  = document.getElementById('hero-desc');
-  animateWordsPreserve(title, 90);
-  animateWordsPreserve(desc, 40);
-
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('reveal');
-        io.unobserve(e.target);
-      }
-    });
-  }, {threshold: 0.15});
-  document.querySelectorAll('.btn').forEach(b=>io.observe(b));
+    },400);
+  });
 </script>
 </body>
 </html>
